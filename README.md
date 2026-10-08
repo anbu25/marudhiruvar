@@ -6,6 +6,7 @@ Quick intro for middle/high schoolers attending the stage play about the Maruthu
 - `poster.html`: page 1, the heroes (maroon/gold palette, filigree frame)
 - `plot.html`: page 2, the story, route map and timeline (`?theme=parchment` for the print palette)
 - `assets/images/`: character portraits
+- `plot2.html`: two-page story (Part I heroes and rise, Part II map, timeline, 1801); optional scene art goes in `assets/scenes/` (see its README)
 - `reference/gemini_original.html`: first Gemini draft, kept for reference
 
 ## Planned outputs
