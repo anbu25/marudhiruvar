@@ -42,6 +42,13 @@
     @media print {
       body { padding: 0; background: none; display: block; }
       .poster-container { box-shadow: none; }
+      /* PDF export rasterizes shadows/filters as black boxes behind text */
+      .title-main, .name-en { filter: none; }
+      body:not(.parchment) * { text-shadow: none !important; }
+      body:not(.parchment) .hero-card,
+      body:not(.parchment) .icon,
+      body:not(.parchment) .portrait-box { box-shadow: none; }
+      body:not(.parchment) .title-banner { box-shadow: inset 0 0 0 4px var(--maroon), inset 0 0 0 5px rgba(232, 184, 74, 0.6); }
     }
 
     /* Outer Poster Canvas */
