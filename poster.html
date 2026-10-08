@@ -27,20 +27,34 @@
       background-color: #1a0204;
       display: flex;
       justify-content: center;
-      align-items: center;
-      min-height: 100vh;
-      padding: 30px 20px;
+      padding: 24px 0;
       font-family: 'Montserrat', sans-serif;
       color: #fff8e6;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+
+    @page {
+      size: A4 portrait;
+      margin: 0;
+    }
+
+    @media print {
+      body { padding: 0; background: none; display: block; }
+      .poster-container { box-shadow: none; }
     }
 
     /* Outer Poster Canvas */
     .poster-container {
-      width: 1000px;
+      width: 210mm;
+      height: 297mm;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
       background:
         radial-gradient(ellipse at 50% 0%, #7a1016 0%, rgba(122, 16, 22, 0) 60%),
         linear-gradient(180deg, #2b0508 0%, #1c0305 100%);
-      padding: 56px 52px;
+      padding: 11mm 11mm 10mm;
       position: relative;
       box-shadow: 0 0 40px rgba(0, 0, 0, 0.95);
     }
@@ -53,18 +67,18 @@
       pointer-events: none;
     }
     .poster-container::before {
-      inset: 14px;
+      inset: 4mm;
       border: 3px solid transparent;
       border-image: linear-gradient(135deg, #fff1bf, #e8b84a 35%, #9a6a12 60%, #f6d77a) 1;
     }
     .poster-container::after {
-      inset: 24px;
+      inset: 6.5mm;
       border: 1px solid rgba(232, 184, 74, 0.6);
     }
     .corner-accent {
       position: absolute;
-      width: 34px;
-      height: 34px;
+      width: 24px;
+      height: 24px;
       border: 0 solid var(--gold);
       z-index: 2;
     }
@@ -77,10 +91,10 @@
       background: linear-gradient(135deg, #fff1bf, #e8b84a 55%, #9a6a12);
       transform: rotate(45deg);
     }
-    .top-left { top: 24px; left: 24px; border-right-width: 2px; border-bottom-width: 2px; border-bottom-right-radius: 100%; }
-    .top-right { top: 24px; right: 24px; border-left-width: 2px; border-bottom-width: 2px; border-bottom-left-radius: 100%; }
-    .bottom-left { bottom: 24px; left: 24px; border-right-width: 2px; border-top-width: 2px; border-top-right-radius: 100%; }
-    .bottom-right { bottom: 24px; right: 24px; border-left-width: 2px; border-top-width: 2px; border-top-left-radius: 100%; }
+    .top-left { top: 6.5mm; left: 6.5mm; border-right-width: 2px; border-bottom-width: 2px; border-bottom-right-radius: 100%; }
+    .top-right { top: 6.5mm; right: 6.5mm; border-left-width: 2px; border-bottom-width: 2px; border-bottom-left-radius: 100%; }
+    .bottom-left { bottom: 6.5mm; left: 6.5mm; border-right-width: 2px; border-top-width: 2px; border-top-right-radius: 100%; }
+    .bottom-right { bottom: 6.5mm; right: 6.5mm; border-left-width: 2px; border-top-width: 2px; border-top-left-radius: 100%; }
     .top-left::before { top: -14.5px; left: -14.5px; }
     .top-right::before { top: -14.5px; right: -14.5px; }
     .bottom-left::before { bottom: -14.5px; left: -14.5px; }
@@ -89,39 +103,25 @@
     /* Header Styling */
     .header {
       text-align: center;
-      margin-bottom: 40px;
+      margin-bottom: 14px;
       position: relative;
     }
 
-    .title-row {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 18px;
-      margin-bottom: 14px;
-    }
-    .tiger {
-      width: 112px;
-      height: 112px;
-      flex-shrink: 0;
-      filter: drop-shadow(0 2px 3px rgba(0, 0, 0, 0.7)) drop-shadow(0 0 8px rgba(255, 213, 107, 0.35));
-    }
-    .tiger.flip { transform: scaleX(-1); }
-
     .title-banner {
       display: inline-block;
-      padding: 10px 56px;
+      padding: 5px 34px;
       background: linear-gradient(180deg, var(--crimson) 0%, var(--maroon) 55%, var(--maroon-deep) 100%);
       border: 2px solid var(--gold);
       border-radius: 14px 14px 14px 14px / 22px 22px 22px 22px;
       box-shadow: inset 0 0 0 4px var(--maroon), inset 0 0 0 5px rgba(232, 184, 74, 0.6), 0 6px 18px rgba(0, 0, 0, 0.6);
+      margin-bottom: 8px;
     }
 
     .title-main {
       font-family: 'Cinzel', serif;
       font-weight: 900;
-      font-size: 58px;
-      letter-spacing: 7px;
+      font-size: 38px;
+      letter-spacing: 5px;
       background: linear-gradient(180deg, #fff6d0 0%, #ffd56b 45%, #e8b84a 70%, #fff1bf 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
@@ -130,27 +130,27 @@
 
     .title-sub-ta {
       font-family: 'Mukta Malar', sans-serif;
-      font-size: 26px;
+      font-size: 17px;
       color: #ffe29a;
-      letter-spacing: 2px;
+      letter-spacing: 1px;
       text-shadow: 0 1px 2px rgba(0, 0, 0, 0.8);
       font-weight: 700;
     }
 
     .title-sub-en {
       font-family: 'Cinzel', serif;
-      font-size: 15px;
+      font-size: 10.5px;
       color: #fff0c2;
-      letter-spacing: 3px;
+      letter-spacing: 2.5px;
       font-weight: 600;
       margin-top: 2px;
     }
 
     .divider {
-      width: 260px;
+      width: 200px;
       height: 2px;
       background: linear-gradient(90deg, transparent, #dca538, transparent);
-      margin: 18px auto 0 auto;
+      margin: 8px auto 0 auto;
     }
 
     /* Hero Card Containers */
@@ -160,12 +160,13 @@
       background: linear-gradient(180deg, #3b0a0e 0%, #240508 100%);
       border: 2px solid var(--gold);
       border-radius: 16px;
-      padding: 24px;
-      margin-bottom: 26px;
+      padding: 10px 16px;
+      margin-bottom: 10px;
       display: flex;
-      gap: 24px;
+      gap: 16px;
       align-items: center;
       box-shadow: 0 0 14px rgba(232, 184, 74, 0.25), 0 8px 20px rgba(0, 0, 0, 0.7);
+      flex: 1;
     }
 
     /* Soft golden sheen across each card */
@@ -189,9 +190,9 @@
 
     .name-en {
       font-family: 'Cinzel', serif;
-      font-size: 28px;
+      font-size: 19px;
       font-weight: 800;
-      letter-spacing: 1.5px;
+      letter-spacing: 1px;
       background: linear-gradient(180deg, #fff1bf 0%, #ffd56b 50%, #e8b84a 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
@@ -200,16 +201,16 @@
 
     .name-ta {
       font-family: 'Mukta Malar', sans-serif;
-      font-size: 20px;
+      font-size: 14.5px;
       color: #ffd56b;
-      margin-bottom: 14px;
+      margin-bottom: 7px;
       font-weight: 700;
       text-shadow: 0 1px 2px rgba(0, 0, 0, 0.8);
     }
 
     /* Bullet Point Typography */
     .bullet-item {
-      margin-bottom: 11px;
+      margin-bottom: 6px;
     }
 
     .bullet-item:last-child {
@@ -217,13 +218,13 @@
     }
 
     .bullet-title {
-      font-size: 15px;
+      font-size: 12px;
       line-height: 1.35;
       font-weight: 700;
       color: #ffd56b;
-      margin-bottom: 2px;
-      padding-left: 34px;
-      text-indent: -34px;
+      margin-bottom: 1px;
+      padding-left: 26px;
+      text-indent: -26px;
       text-shadow: 0 1px 2px rgba(0, 0, 0, 0.8);
     }
 
@@ -231,12 +232,12 @@
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      width: 26px;
-      height: 26px;
-      margin-right: 8px;
+      width: 19px;
+      height: 19px;
+      margin-right: 7px;
       vertical-align: middle;
       text-indent: 0;
-      font-size: 14px;
+      font-size: 11px;
       line-height: 1;
       border-radius: 50%;
       background: radial-gradient(circle at 35% 30%, #6a141a 0%, #2a0507 100%);
@@ -251,17 +252,17 @@
 
     .bullet-desc-ta {
       font-family: 'Mukta Malar', sans-serif;
-      font-size: 16px;
+      font-size: 13px;
       color: #f3e2c0;
-      padding-left: 34px;
+      padding-left: 26px;
       line-height: 1.4;
       text-shadow: 0 1px 2px rgba(0, 0, 0, 0.7);
     }
 
     /* Portrait with golden spotlight */
     .portrait-box {
-      width: 250px;
-      height: 300px;
+      width: 150px;
+      height: 200px;
       background: radial-gradient(circle at 50% 50%, #ffe29a 0%, #e8b84a 30%, #8a1a10 75%, #2a0507 100%);
       border: 2px solid var(--gold);
       border-radius: 12px;
@@ -284,68 +285,14 @@
     .footer {
       text-align: center;
       font-family: 'Cinzel', serif;
-      font-size: 13.5px;
+      font-size: 10px;
       color: #ffd56b;
-      letter-spacing: 3px;
-      margin-top: 15px;
+      letter-spacing: 2.5px;
+      margin-top: 2px;
     }
   </style>
 </head>
 <body>
-
-  <!-- Roaring tiger head (Sivaganga banner emblem), reused on both sides of the title -->
-  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
-    <defs>
-            <symbol id="tiger" viewBox="0 0 100 100">
-        <defs>
-          <linearGradient id="tgGold" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0" stop-color="#fff1bf"/>
-            <stop offset="0.45" stop-color="#f0c24b"/>
-            <stop offset="1" stop-color="#a87414"/>
-          </linearGradient>
-          <g id="tigerHalf">
-            <!-- ear -->
-            <path d="M9 36 C4 18 14 4 28 9 C34 11 37 16 38 21Z" fill="url(#tgGold)" stroke="#3a0508" stroke-width="1.2" stroke-linejoin="round"/>
-            <path d="M15 29 C12 19 18 12 26 15 C28 16 30 18 30 21Z" fill="#3a0508"/>
-            <!-- head with jagged cheek ruff -->
-            <path d="M50 9 L36 14 L22 25 L11 38 L2 51 L12 52 L5 63 L16 64 L13 76 L26 76 L33 90 L50 95Z" fill="url(#tgGold)" stroke="#3a0508" stroke-width="1.2" stroke-linejoin="round"/>
-            <!-- faceted shading on cheek and jaw -->
-            <path d="M2 51 L12 52 L5 63 L16 64 L13 76 L26 76 L33 90 L50 95 L50 70 L30 62 L22 52Z" fill="#8a5a0c" opacity="0.38"/>
-            <path d="M50 9 L36 14 L22 25 L30 36 L50 34Z" fill="#fff8d6" opacity="0.28"/>
-            <!-- forehead stripes -->
-            <g fill="#3a0508">
-              <path d="M50 11 L47 34 L50 40Z"/>
-              <path d="M41 14 L46 36 L38 27Z"/>
-              <path d="M31 19 L39 38 L27 29Z"/>
-              <path d="M16 36 L24 40 L14 44Z"/>
-              <path d="M6 53 L19 57 L8 60Z"/>
-              <path d="M9 66 L21 67 L12 72Z"/>
-            </g>
-            <!-- furrowed angry brow and eye socket -->
-            <path d="M13 40 L47 50 L42 59 L24 56Z" fill="#3a0508"/>
-            <!-- glowing eye -->
-            <path d="M24 49 L42 53 L38 57 L27 54Z" fill="#ffe08a"/>
-            <path d="M33 51 L38 52.5 L36 55 L32 54Z" fill="#7a0f14"/>
-            <!-- nose bridge wrinkles (snarl) -->
-            <path d="M47 41 L41 49 M49 46 L43 54" stroke="#3a0508" stroke-width="1.6" stroke-linecap="round" fill="none"/>
-            <!-- nose -->
-            <path d="M42 58 L50 54 L50 68 L45 66Z" fill="#3a0508"/>
-            <!-- open jaws -->
-            <path d="M18 72 L50 66 L50 91 L34 86Z" fill="#240407"/>
-            <path d="M30 80 Q42 76 50 80 L50 88 Q40 88 33 85Z" fill="#b02a2a"/>
-            <!-- fangs -->
-            <path d="M25 70 L35 69 L30 88Z" fill="#fff8e6" stroke="#3a0508" stroke-width="0.8" stroke-linejoin="round"/>
-            <path d="M37 88 L44 87 L41 74Z" fill="#fff8e6" stroke="#3a0508" stroke-width="0.8" stroke-linejoin="round"/>
-            <path d="M44 67 L50 66 L48 76Z" fill="#fff8e6"/>
-            <!-- whisker points -->
-            <path d="M18 72 L4 70 M18 75 L6 80" stroke="#3a0508" stroke-width="1.2" stroke-linecap="round" fill="none"/>
-          </g>
-        </defs>
-        <use href="#tigerHalf"/>
-        <use href="#tigerHalf" transform="translate(100 0) scale(-1 1)"/>
-      </symbol>
-    </defs>
-  </svg>
 
   <div class="poster-container">
     <!-- Frame corners -->
@@ -356,17 +303,9 @@
 
     <!-- Header Section -->
     <div class="header">
-      <div class="title-row">
-        <svg class="tiger" viewBox="0 0 100 100" aria-hidden="true">
-          <use href="#tiger"/>
-        </svg>
-        <div class="title-banner">
+<div class="title-banner">
           <div class="title-main">OUR HEROES</div>
         </div>
-        <svg class="tiger flip" viewBox="0 0 100 100" aria-hidden="true">
-          <use href="#tiger"/>
-        </svg>
-      </div>
       <div class="title-sub-ta">வீரத்தின் அடையாளம் • சுதந்திரப் போராளிகள்</div>
       <div class="title-sub-en">SYMBOLS OF VALOR • FREEDOM FIGHTERS</div>
       <div class="divider"></div>
