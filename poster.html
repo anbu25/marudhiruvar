@@ -54,12 +54,12 @@
       background:
         radial-gradient(ellipse at 50% 0%, #7a1016 0%, rgba(122, 16, 22, 0) 60%),
         linear-gradient(180deg, #2b0508 0%, #1c0305 100%);
-      padding: 11mm 9.5mm 10mm;
+      padding: 10mm 8.5mm 9mm;
       position: relative;
       box-shadow: 0 0 40px rgba(0, 0, 0, 0.95);
     }
 
-    /* Double gold frame with quarter-arc corner flourishes */
+    /* Double gold frame */
     .poster-container::before,
     .poster-container::after {
       content: "";
@@ -77,17 +77,6 @@
       inset: 6.5mm;
       border: 1.5px solid rgba(232, 184, 74, 0.9);
     }
-    .corner-accent {
-      position: absolute;
-      width: 40px;
-      height: 40px;
-      border: 0 solid var(--gold);
-      z-index: 2;
-    }
-    .top-left { top: 6.5mm; left: 6.5mm; border-right-width: 4px; border-bottom-width: 4px; border-bottom-right-radius: 100%; }
-    .top-right { top: 6.5mm; right: 6.5mm; border-left-width: 4px; border-bottom-width: 4px; border-bottom-left-radius: 100%; }
-    .bottom-left { bottom: 6.5mm; left: 6.5mm; border-right-width: 4px; border-top-width: 4px; border-top-right-radius: 100%; }
-    .bottom-right { bottom: 6.5mm; right: 6.5mm; border-left-width: 4px; border-top-width: 4px; border-top-left-radius: 100%; }
 
     /* Header Styling */
     .header {
@@ -250,8 +239,9 @@
 
     /* Portrait with golden spotlight */
     .portrait-box {
-      width: 140px;
-      height: 185px;
+      width: 158px;
+      height: 100%;
+      max-height: 215px;
       background: radial-gradient(circle at 50% 50%, #ffe29a 0%, #e8b84a 30%, #8a1a10 75%, #2a0507 100%);
       border: 2px solid var(--gold);
       border-radius: 12px;
@@ -293,7 +283,6 @@
     }
     .parchment .poster-container::before { outline-color: rgba(138, 36, 24, 0.8); }
     .parchment .poster-container::after { border-color: rgba(138, 36, 24, 0.85); }
-    .parchment .corner-accent { border-color: #8a2418; }
 
     .parchment .title-banner { border-color: #e8b84a; }
     .parchment .title-sub-ta { color: #7a1e12; text-shadow: none; }
@@ -331,12 +320,6 @@
 <body>
 
   <div class="poster-container">
-    <!-- Frame corners -->
-    <div class="corner-accent top-left"></div>
-    <div class="corner-accent top-right"></div>
-    <div class="corner-accent bottom-left"></div>
-    <div class="corner-accent bottom-right"></div>
-
     <!-- Header Section -->
     <div class="header">
 <div class="title-banner">
