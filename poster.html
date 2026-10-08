@@ -79,28 +79,15 @@
     }
     .corner-accent {
       position: absolute;
-      width: 34px;
-      height: 34px;
+      width: 40px;
+      height: 40px;
       border: 0 solid var(--gold);
       z-index: 2;
     }
-    /* small diamond sitting on the corner of the thick frame */
-    .corner-accent::before {
-      content: "";
-      position: absolute;
-      width: 14px;
-      height: 14px;
-      background: linear-gradient(135deg, #fff1bf, #e8b84a 55%, #9a6a12);
-      transform: rotate(45deg);
-    }
-    .top-left { top: 6.5mm; left: 6.5mm; border-right-width: 2.5px; border-bottom-width: 2.5px; border-bottom-right-radius: 100%; }
-    .top-right { top: 6.5mm; right: 6.5mm; border-left-width: 2.5px; border-bottom-width: 2.5px; border-bottom-left-radius: 100%; }
-    .bottom-left { bottom: 6.5mm; left: 6.5mm; border-right-width: 2.5px; border-top-width: 2.5px; border-top-right-radius: 100%; }
-    .bottom-right { bottom: 6.5mm; right: 6.5mm; border-left-width: 2.5px; border-top-width: 2.5px; border-top-left-radius: 100%; }
-    .top-left::before { top: -16px; left: -16px; }
-    .top-right::before { top: -16px; right: -16px; }
-    .bottom-left::before { bottom: -16px; left: -16px; }
-    .bottom-right::before { bottom: -16px; right: -16px; }
+    .top-left { top: 6.5mm; left: 6.5mm; border-right-width: 4px; border-bottom-width: 4px; border-bottom-right-radius: 100%; }
+    .top-right { top: 6.5mm; right: 6.5mm; border-left-width: 4px; border-bottom-width: 4px; border-bottom-left-radius: 100%; }
+    .bottom-left { bottom: 6.5mm; left: 6.5mm; border-right-width: 4px; border-top-width: 4px; border-top-right-radius: 100%; }
+    .bottom-right { bottom: 6.5mm; right: 6.5mm; border-left-width: 4px; border-top-width: 4px; border-top-left-radius: 100%; }
 
     /* Header Styling */
     .header {
@@ -307,7 +294,6 @@
     .parchment .poster-container::before { outline-color: rgba(138, 36, 24, 0.8); }
     .parchment .poster-container::after { border-color: rgba(138, 36, 24, 0.85); }
     .parchment .corner-accent { border-color: #8a2418; }
-    .parchment .corner-accent::before { background: linear-gradient(135deg, #e0a526, #8a2418); }
 
     .parchment .title-banner { border-color: #e8b84a; }
     .parchment .title-sub-ta { color: #7a1e12; text-shadow: none; }
