@@ -31,21 +31,21 @@
       min-height: 100vh;
       padding: 30px 20px;
       font-family: 'Montserrat', sans-serif;
-      color: #ffffff;
+      color: #fff8e6;
     }
 
     /* Outer Poster Canvas */
     .poster-container {
       width: 1000px;
       background:
-        radial-gradient(circle at 50% 0%, #6a0c10 0%, rgba(106, 12, 16, 0) 55%),
-        radial-gradient(circle at 50% 30%, #3a0b08 0%, #230605 55%, #140203 100%);
-      padding: 64px 60px;
+        radial-gradient(ellipse at 50% 0%, #7a1016 0%, rgba(122, 16, 22, 0) 60%),
+        linear-gradient(180deg, #2b0508 0%, #1c0305 100%);
+      padding: 56px 52px;
       position: relative;
       box-shadow: 0 0 40px rgba(0, 0, 0, 0.95);
     }
 
-    /* Double gold frame (outer thick, inner hairline) */
+    /* Simple double gold frame with small diamond corners */
     .poster-container::before,
     .poster-container::after {
       content: "";
@@ -53,38 +53,26 @@
       pointer-events: none;
     }
     .poster-container::before {
-      inset: 12px;
-      border: 3px solid var(--gold);
-      box-shadow: 0 0 0 1px var(--gold-dark);
+      inset: 14px;
+      border: 3px solid transparent;
+      border-image: linear-gradient(135deg, #fff1bf, #e8b84a 35%, #9a6a12 60%, #f6d77a) 1;
     }
     .poster-container::after {
       inset: 24px;
-      border: 1px solid rgba(232, 184, 74, 0.7);
+      border: 1px solid rgba(232, 184, 74, 0.65);
     }
-
-    /* Filigree corner ornaments */
     .corner-accent {
       position: absolute;
-      width: 96px;
-      height: 96px;
+      width: 16px;
+      height: 16px;
+      background: linear-gradient(135deg, #fff1bf, #e8b84a 50%, #9a6a12);
+      transform: rotate(45deg);
       z-index: 2;
     }
-    .top-left { top: 8px; left: 8px; }
-    .top-right { top: 8px; right: 8px; transform: scaleX(-1); }
-    .bottom-left { bottom: 8px; left: 8px; transform: scaleY(-1); }
-    .bottom-right { bottom: 8px; right: 8px; transform: scale(-1, -1); }
-
-    /* Centre-edge crest, like the top of the Maruthiruvar plaque */
-    .edge-crest {
-      position: absolute;
-      left: 50%;
-      width: 120px;
-      height: 36px;
-      transform: translateX(-50%);
-      z-index: 2;
-    }
-    .edge-crest.top { top: -2px; }
-    .edge-crest.bottom { bottom: -2px; transform: translateX(-50%) scaleY(-1); }
+    .top-left { top: 15px; left: 15px; }
+    .top-right { top: 15px; right: 15px; }
+    .bottom-left { bottom: 15px; left: 15px; }
+    .bottom-right { bottom: 15px; right: 15px; }
 
     /* Header Styling */
     .header {
@@ -108,24 +96,25 @@
       font-weight: 900;
       font-size: 58px;
       letter-spacing: 7px;
-      background: linear-gradient(135deg, #ffe8a3 0%, #dca538 40%, #91610e 70%, #f5ce6b 100%);
+      background: linear-gradient(180deg, #fff6d0 0%, #ffd56b 45%, #e8b84a 70%, #fff1bf 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
-      text-shadow: 0 0 15px rgba(220, 165, 56, 0.3);
+      filter: drop-shadow(0 2px 2px rgba(0, 0, 0, 0.7)) drop-shadow(0 0 8px rgba(255, 213, 107, 0.35));
     }
 
     .title-sub-ta {
       font-family: 'Mukta Malar', sans-serif;
       font-size: 26px;
-      color: #e3c176;
+      color: #ffe29a;
       letter-spacing: 2px;
+      text-shadow: 0 1px 2px rgba(0, 0, 0, 0.8);
       font-weight: 700;
     }
 
     .title-sub-en {
       font-family: 'Cinzel', serif;
       font-size: 15px;
-      color: #ffd885;
+      color: #fff0c2;
       letter-spacing: 3px;
       font-weight: 600;
       margin-top: 2px;
@@ -140,15 +129,26 @@
 
     /* Hero Card Containers */
     .hero-card {
-      background: linear-gradient(180deg, rgba(90, 10, 14, 0.55) 0%, rgba(30, 4, 5, 0.85) 100%);
-      border: 1.5px solid var(--gold);
-      border-radius: 18px;
-      padding: 28px;
-      margin-bottom: 28px;
+      position: relative;
+      overflow: hidden;
+      background: linear-gradient(180deg, #3b0a0e 0%, #240508 100%);
+      border: 2px solid var(--gold);
+      border-radius: 16px;
+      padding: 24px;
+      margin-bottom: 26px;
       display: flex;
-      gap: 30px;
+      gap: 24px;
       align-items: center;
-      box-shadow: inset 0 0 0 5px rgba(20, 2, 3, 0.6), inset 0 0 0 6px rgba(232, 184, 74, 0.25), 0 8px 20px rgba(0, 0, 0, 0.7);
+      box-shadow: 0 0 14px rgba(232, 184, 74, 0.25), 0 8px 20px rgba(0, 0, 0, 0.7);
+    }
+
+    /* Soft golden sheen across each card */
+    .hero-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(115deg, rgba(255, 226, 154, 0.10) 0%, rgba(255, 226, 154, 0) 35%);
+      pointer-events: none;
     }
 
     .hero-card.reverse {
@@ -157,27 +157,33 @@
 
     .hero-info {
       flex: 1;
+      min-width: 0;
+      position: relative;
     }
 
     .name-en {
       font-family: 'Cinzel', serif;
-      font-size: 30px;
+      font-size: 28px;
       font-weight: 800;
-      color: #ffd56b;
       letter-spacing: 1.5px;
+      background: linear-gradient(180deg, #fff1bf 0%, #ffd56b 50%, #e8b84a 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      filter: drop-shadow(0 1px 0 rgba(0, 0, 0, 0.6));
     }
 
     .name-ta {
       font-family: 'Mukta Malar', sans-serif;
-      font-size: 21px;
-      color: #e0ac43;
-      margin-bottom: 18px;
+      font-size: 20px;
+      color: #ffd56b;
+      margin-bottom: 14px;
       font-weight: 700;
+      text-shadow: 0 1px 2px rgba(0, 0, 0, 0.8);
     }
 
     /* Bullet Point Typography */
     .bullet-item {
-      margin-bottom: 14px;
+      margin-bottom: 11px;
     }
 
     .bullet-item:last-child {
@@ -186,23 +192,31 @@
 
     .bullet-title {
       font-size: 15px;
+      line-height: 1.35;
       font-weight: 700;
-      color: #ffd885;
+      color: #ffd56b;
       margin-bottom: 2px;
+      text-shadow: 0 1px 2px rgba(0, 0, 0, 0.8);
+    }
+
+    .bullet-en {
+      color: #fff8e6;
+      font-weight: 500;
     }
 
     .bullet-desc-ta {
       font-family: 'Mukta Malar', sans-serif;
-      font-size: 14.5px;
-      color: #d1beaa;
-      padding-left: 22px;
+      font-size: 16px;
+      color: #f3e2c0;
+      padding-left: 20px;
       line-height: 1.4;
+      text-shadow: 0 1px 2px rgba(0, 0, 0, 0.7);
     }
 
-    /* Cutout Portrait Box with Golden Radial Spotlight */
+    /* Portrait with golden spotlight */
     .portrait-box {
-      width: 290px;
-      height: 320px;
+      width: 250px;
+      height: 300px;
       background: radial-gradient(circle at 50% 50%, #ffe29a 0%, #e8b84a 30%, #8a1a10 75%, #2a0507 100%);
       border: 2px solid var(--gold);
       border-radius: 12px;
@@ -211,7 +225,7 @@
       display: flex;
       justify-content: center;
       align-items: flex-end;
-      box-shadow: inset 0 0 15px rgba(0, 0, 0, 0.7);
+      box-shadow: inset 0 0 15px rgba(0, 0, 0, 0.7), 0 0 10px rgba(232, 184, 74, 0.3);
     }
 
     .portrait-box img {
@@ -226,7 +240,7 @@
       text-align: center;
       font-family: 'Cinzel', serif;
       font-size: 13.5px;
-      color: #e2b041;
+      color: #ffd56b;
       letter-spacing: 3px;
       margin-top: 15px;
     }
@@ -234,45 +248,12 @@
 </head>
 <body>
 
-  <!-- Reusable gold ornaments -->
-  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
-    <defs>
-      <linearGradient id="goldGrad" x1="0" y1="0" x2="1" y2="1">
-        <stop offset="0" stop-color="#ffe29a"/>
-        <stop offset="0.5" stop-color="#e8b84a"/>
-        <stop offset="1" stop-color="#9a6a12"/>
-      </linearGradient>
-      <symbol id="corner" viewBox="0 0 100 100">
-        <g fill="none" stroke="url(#goldGrad)" stroke-linecap="round">
-          <path d="M8 74 V24 Q8 8 24 8 H74" stroke-width="3"/>
-          <path d="M18 60 V28 Q18 18 28 18 H60" stroke-width="1.4"/>
-          <path d="M32 32 C50 32 58 48 46 55 C37 60 30 50 38 45" stroke-width="2.2"/>
-          <path d="M32 32 C32 50 48 58 55 46 C60 37 50 30 45 38" stroke-width="2.2"/>
-          <path d="M74 8 C82 8 88 13 90 20 C84 18 78 18 74 8Z" stroke-width="1.5" fill="url(#goldGrad)"/>
-          <path d="M8 74 C8 82 13 88 20 90 C18 84 18 78 8 74Z" stroke-width="1.5" fill="url(#goldGrad)"/>
-        </g>
-        <circle cx="32" cy="32" r="4" fill="url(#goldGrad)"/>
-        <circle cx="8" cy="8" r="3" fill="url(#goldGrad)"/>
-      </symbol>
-      <symbol id="crest" viewBox="0 0 120 36">
-        <g fill="none" stroke="url(#goldGrad)" stroke-linecap="round" stroke-width="2">
-          <path d="M4 6 H34 C44 6 46 20 60 20 C74 20 76 6 86 6 H116"/>
-          <path d="M44 6 C48 -1 54 2 56 8 M76 6 C72 -1 66 2 64 8" stroke-width="1.6"/>
-        </g>
-        <path d="M60 2 L66 12 L60 22 L54 12Z" fill="url(#goldGrad)"/>
-        <circle cx="60" cy="28" r="3" fill="url(#goldGrad)"/>
-      </symbol>
-    </defs>
-  </svg>
-
   <div class="poster-container">
-    <!-- Ornate Corners -->
-    <svg class="corner-accent top-left"><use href="#corner"/></svg>
-    <svg class="corner-accent top-right"><use href="#corner"/></svg>
-    <svg class="corner-accent bottom-left"><use href="#corner"/></svg>
-    <svg class="corner-accent bottom-right"><use href="#corner"/></svg>
-    <svg class="edge-crest top"><use href="#crest"/></svg>
-    <svg class="edge-crest bottom"><use href="#crest"/></svg>
+    <!-- Frame corners -->
+    <div class="corner-accent top-left"></div>
+    <div class="corner-accent top-right"></div>
+    <div class="corner-accent bottom-left"></div>
+    <div class="corner-accent bottom-right"></div>
 
     <!-- Header Section -->
     <div class="header">
@@ -291,22 +272,22 @@
         <div class="name-ta">பெரிய மருது (வெள்ளை மருது)</div>
 
         <div class="bullet-item">
-          <div class="bullet-title">⚔ Ruler &amp; Warrior: <span style="color:#fff; font-weight:400;">Senior commander and co-ruler of Sivaganga.</span></div>
+          <div class="bullet-title">⚔ Ruler &amp; Warrior: <span class="bullet-en">Senior commander and co-ruler of Sivaganga.</span></div>
           <div class="bullet-desc-ta">சிவகங்கைச் சீமையின் மூத்த ஆட்சியாளர் மற்றும் படைத்தளபதி.</div>
         </div>
 
         <div class="bullet-item">
-          <div class="bullet-title">🛡 Master of Valari: <span style="color:#fff; font-weight:400;">Expert in traditional Tamil weaponry and warfare.</span></div>
+          <div class="bullet-title">🛡 Master of Valari: <span class="bullet-en">Expert in traditional Tamil weaponry and warfare.</span></div>
           <div class="bullet-desc-ta">வளரி வீச்சில் வல்லவர்; கொரில்லா போர்க்கலையில் சிறந்தவர்.</div>
         </div>
 
         <div class="bullet-item">
-          <div class="bullet-title">👑 Pillar of Strength: <span style="color:#fff; font-weight:400;">Stood as protective shield for Queen Velu Nachiyar.</span></div>
+          <div class="bullet-title">👑 Pillar of Strength: <span class="bullet-en">Stood as protective shield for Queen Velu Nachiyar.</span></div>
           <div class="bullet-desc-ta">வேலு நாச்சியாரின் நம்பிக்கைக்குரிய பாதுகாப்புத் தூணாகத் திகழ்ந்தவர்.</div>
         </div>
 
         <div class="bullet-item">
-          <div class="bullet-title">🔥 Immortal Legacy: <span style="color:#fff; font-weight:400;">Martyred in 1801 fighting British colonial forces.</span></div>
+          <div class="bullet-title">🔥 Immortal Legacy: <span class="bullet-en">Martyred in 1801 fighting British colonial forces.</span></div>
           <div class="bullet-desc-ta">ஆங்கிலேய ஆட்சியை எதிர்த்து நின்று தாய்நாட்டிற்காக உயிர்நீத்தவர்.</div>
         </div>
       </div>
@@ -323,22 +304,22 @@
         <div class="name-ta">சின்ன மருது</div>
 
         <div class="bullet-item">
-          <div class="bullet-title">📜 The Diplomat &amp; Strategist: <span style="color:#fff; font-weight:400;">Brain behind anti-British coalitions.</span></div>
+          <div class="bullet-title">📜 The Diplomat &amp; Strategist: <span class="bullet-en">Brain behind anti-British coalitions.</span></div>
           <div class="bullet-desc-ta">சிறந்த ராஜதந்திரி மற்றும் இராணுவ வியூகங்களை வகுத்தவர்.</div>
         </div>
 
         <div class="bullet-item">
-          <div class="bullet-title">📢 Jambudvipa Proclamation (1801): <span style="color:#fff; font-weight:400;">Issued 1st call for Indian unity.</span></div>
+          <div class="bullet-title">📢 Jambudvipa Proclamation (1801): <span class="bullet-en">Issued 1st call for Indian unity.</span></div>
           <div class="bullet-desc-ta">ஆங்கிலேயருக்கு எதிராக 'ஜம்பு தீவு பிரகடனம்' வெளியிட்டவர்.</div>
         </div>
 
         <div class="bullet-item">
-          <div class="bullet-title">🏹 Guerrilla Master: <span style="color:#fff; font-weight:400;">Spearheaded resistance across South India.</span></div>
+          <div class="bullet-title">🏹 Guerrilla Master: <span class="bullet-en">Spearheaded resistance across South India.</span></div>
           <div class="bullet-desc-ta">தென்னிந்திய கூட்டமைப்பை அமைத்து கொரில்லா போர் நடத்தியவர்.</div>
         </div>
 
         <div class="bullet-item">
-          <div class="bullet-title">🌟 Lion of Sivaganga: <span style="color:#fff; font-weight:400;">Revered for visionary leadership &amp; patriotism.</span></div>
+          <div class="bullet-title">🌟 Lion of Sivaganga: <span class="bullet-en">Revered for visionary leadership &amp; patriotism.</span></div>
           <div class="bullet-desc-ta">சிவகங்கைச் சிங்கமென போற்றப்படும் தீரமிக்கத் தலைவர்.</div>
         </div>
       </div>
@@ -355,22 +336,22 @@
         <div class="name-ta">ராணி வேலுநாச்சியார் (வீரமங்கை)</div>
 
         <div class="bullet-item">
-          <div class="bullet-title">👑 Veeramangai (Brave Woman): <span style="color:#fff; font-weight:400;">First Indian Queen to fight the British.</span></div>
+          <div class="bullet-title">👑 Veeramangai (Brave Woman): <span class="bullet-en">First Indian Queen to fight the British.</span></div>
           <div class="bullet-desc-ta">ஆங்கிலேய ஆட்சியை எதிர்த்து போராடி வென்ற முதல் இந்திய ராணி.</div>
         </div>
 
         <div class="bullet-item">
-          <div class="bullet-title">🌐 Polyglot &amp; Scholar: <span style="color:#fff; font-weight:400;">Fluent in French, Urdu, English &amp; Martial Arts.</span></div>
+          <div class="bullet-title">🌐 Polyglot &amp; Scholar: <span class="bullet-en">Fluent in French, Urdu, English &amp; Martial Arts.</span></div>
           <div class="bullet-desc-ta">பிரெஞ்சு, உருது, ஆங்கிலம் மற்றும் சிலம்பக் கலையில் தேர்ச்சி பெற்றவர்.</div>
         </div>
 
         <div class="bullet-item">
-          <div class="bullet-title">⚔ First All-Women Army: <span style="color:#fff; font-weight:400;">Formed elite 'Udaiyal' regiment with Kuyili.</span></div>
+          <div class="bullet-title">⚔ First All-Women Army: <span class="bullet-en">Formed elite 'Udaiyal' regiment with Kuyili.</span></div>
           <div class="bullet-desc-ta">உலகின் முதல் பெண்கள் படைப்பிரிவை ('உடையாள்') உருவாக்கியவர்.</div>
         </div>
 
         <div class="bullet-item">
-          <div class="bullet-title">🏰 Historic Victory (1780): <span style="color:#fff; font-weight:400;">Recaptured Sivaganga after 8 years in exile.</span></div>
+          <div class="bullet-title">🏰 Historic Victory (1780): <span class="bullet-en">Recaptured Sivaganga after 8 years in exile.</span></div>
           <div class="bullet-desc-ta">8 ஆண்டுகள் போராட்டத்திற்குப் பின் சிவகங்கைச் சீமையை மீட்டார்.</div>
         </div>
       </div>
