@@ -13,18 +13,8 @@
       padding: 0;
     }
 
-    :root {
-      --maroon-deep: #3a0508;
-      --maroon: #7a0f14;
-      --crimson: #a3141a;
-      --gold: #e8b84a;
-      --gold-light: #ffe29a;
-      --gold-dark: #9a6a12;
-      --cream: #f6ead2;
-    }
-
     body {
-      background-color: #1a0204;
+      background-color: #050100;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -37,54 +27,27 @@
     /* Outer Poster Canvas */
     .poster-container {
       width: 1000px;
-      background:
-        radial-gradient(circle at 50% 0%, #6a0c10 0%, rgba(106, 12, 16, 0) 55%),
-        radial-gradient(circle at 50% 30%, #3a0b08 0%, #230605 55%, #140203 100%);
-      padding: 64px 60px;
-      position: relative;
+      background: radial-gradient(circle at 50% 30%, #1c0a02 0%, #0c0401 50%, #040100 100%);
+      border: 3px solid #dca538;
+      outline: 1px solid rgba(226, 176, 65, 0.4);
+      outline-offset: -12px;
+      padding: 45px 40px;
+      border-radius: 12px;
       box-shadow: 0 0 40px rgba(0, 0, 0, 0.95);
+      position: relative;
     }
 
-    /* Double gold frame (outer thick, inner hairline) */
-    .poster-container::before,
-    .poster-container::after {
-      content: "";
-      position: absolute;
-      pointer-events: none;
-    }
-    .poster-container::before {
-      inset: 12px;
-      border: 3px solid var(--gold);
-      box-shadow: 0 0 0 1px var(--gold-dark);
-    }
-    .poster-container::after {
-      inset: 24px;
-      border: 1px solid rgba(232, 184, 74, 0.7);
-    }
-
-    /* Filigree corner ornaments */
+    /* Ornate Corner Accents */
     .corner-accent {
       position: absolute;
-      width: 96px;
-      height: 96px;
-      z-index: 2;
+      width: 30px;
+      height: 30px;
+      border: 3px solid #ffd56b;
     }
-    .top-left { top: 8px; left: 8px; }
-    .top-right { top: 8px; right: 8px; transform: scaleX(-1); }
-    .bottom-left { bottom: 8px; left: 8px; transform: scaleY(-1); }
-    .bottom-right { bottom: 8px; right: 8px; transform: scale(-1, -1); }
-
-    /* Centre-edge crest, like the top of the Maruthiruvar plaque */
-    .edge-crest {
-      position: absolute;
-      left: 50%;
-      width: 120px;
-      height: 36px;
-      transform: translateX(-50%);
-      z-index: 2;
-    }
-    .edge-crest.top { top: -2px; }
-    .edge-crest.bottom { bottom: -2px; transform: translateX(-50%) scaleY(-1); }
+    .top-left { top: 18px; left: 18px; border-right: none; border-bottom: none; }
+    .top-right { top: 18px; right: 18px; border-left: none; border-bottom: none; }
+    .bottom-left { bottom: 18px; left: 18px; border-right: none; border-top: none; }
+    .bottom-right { bottom: 18px; right: 18px; border-left: none; border-top: none; }
 
     /* Header Styling */
     .header {
@@ -95,12 +58,9 @@
 
     .title-banner {
       display: inline-block;
-      padding: 10px 56px;
-      background: linear-gradient(180deg, var(--crimson) 0%, var(--maroon) 55%, var(--maroon-deep) 100%);
-      border: 2px solid var(--gold);
-      border-radius: 14px 14px 14px 14px / 22px 22px 22px 22px;
-      box-shadow: inset 0 0 0 4px var(--maroon), inset 0 0 0 5px rgba(232, 184, 74, 0.6), 0 6px 18px rgba(0, 0, 0, 0.6);
-      margin-bottom: 14px;
+      padding: 6px 40px;
+      background: linear-gradient(90deg, rgba(84,7,7,0) 0%, rgba(163,18,18,0.5) 50%, rgba(84,7,7,0) 100%);
+      margin-bottom: 8px;
     }
 
     .title-main {
@@ -140,15 +100,15 @@
 
     /* Hero Card Containers */
     .hero-card {
-      background: linear-gradient(180deg, rgba(90, 10, 14, 0.55) 0%, rgba(30, 4, 5, 0.85) 100%);
-      border: 1.5px solid var(--gold);
-      border-radius: 18px;
+      background: linear-gradient(180deg, #160802 0%, #0a0301 100%);
+      border: 2px solid #dca538;
+      border-radius: 12px;
       padding: 28px;
       margin-bottom: 28px;
       display: flex;
       gap: 30px;
       align-items: center;
-      box-shadow: inset 0 0 0 5px rgba(20, 2, 3, 0.6), inset 0 0 0 6px rgba(232, 184, 74, 0.25), 0 8px 20px rgba(0, 0, 0, 0.7);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.85);
     }
 
     .hero-card.reverse {
@@ -203,9 +163,9 @@
     .portrait-box {
       width: 290px;
       height: 320px;
-      background: radial-gradient(circle at 50% 50%, #ffe29a 0%, #e8b84a 30%, #8a1a10 75%, #2a0507 100%);
-      border: 2px solid var(--gold);
-      border-radius: 12px;
+      background: radial-gradient(circle at 50% 50%, #ffe8a3 0%, #dca538 35%, #6e3108 75%, #180a02 100%);
+      border: 2px solid #dca538;
+      border-radius: 10px;
       overflow: hidden;
       flex-shrink: 0;
       display: flex;
@@ -234,45 +194,12 @@
 </head>
 <body>
 
-  <!-- Reusable gold ornaments -->
-  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
-    <defs>
-      <linearGradient id="goldGrad" x1="0" y1="0" x2="1" y2="1">
-        <stop offset="0" stop-color="#ffe29a"/>
-        <stop offset="0.5" stop-color="#e8b84a"/>
-        <stop offset="1" stop-color="#9a6a12"/>
-      </linearGradient>
-      <symbol id="corner" viewBox="0 0 100 100">
-        <g fill="none" stroke="url(#goldGrad)" stroke-linecap="round">
-          <path d="M8 74 V24 Q8 8 24 8 H74" stroke-width="3"/>
-          <path d="M18 60 V28 Q18 18 28 18 H60" stroke-width="1.4"/>
-          <path d="M32 32 C50 32 58 48 46 55 C37 60 30 50 38 45" stroke-width="2.2"/>
-          <path d="M32 32 C32 50 48 58 55 46 C60 37 50 30 45 38" stroke-width="2.2"/>
-          <path d="M74 8 C82 8 88 13 90 20 C84 18 78 18 74 8Z" stroke-width="1.5" fill="url(#goldGrad)"/>
-          <path d="M8 74 C8 82 13 88 20 90 C18 84 18 78 8 74Z" stroke-width="1.5" fill="url(#goldGrad)"/>
-        </g>
-        <circle cx="32" cy="32" r="4" fill="url(#goldGrad)"/>
-        <circle cx="8" cy="8" r="3" fill="url(#goldGrad)"/>
-      </symbol>
-      <symbol id="crest" viewBox="0 0 120 36">
-        <g fill="none" stroke="url(#goldGrad)" stroke-linecap="round" stroke-width="2">
-          <path d="M4 6 H34 C44 6 46 20 60 20 C74 20 76 6 86 6 H116"/>
-          <path d="M44 6 C48 -1 54 2 56 8 M76 6 C72 -1 66 2 64 8" stroke-width="1.6"/>
-        </g>
-        <path d="M60 2 L66 12 L60 22 L54 12Z" fill="url(#goldGrad)"/>
-        <circle cx="60" cy="28" r="3" fill="url(#goldGrad)"/>
-      </symbol>
-    </defs>
-  </svg>
-
   <div class="poster-container">
     <!-- Ornate Corners -->
-    <svg class="corner-accent top-left"><use href="#corner"/></svg>
-    <svg class="corner-accent top-right"><use href="#corner"/></svg>
-    <svg class="corner-accent bottom-left"><use href="#corner"/></svg>
-    <svg class="corner-accent bottom-right"><use href="#corner"/></svg>
-    <svg class="edge-crest top"><use href="#crest"/></svg>
-    <svg class="edge-crest bottom"><use href="#crest"/></svg>
+    <div class="corner-accent top-left"></div>
+    <div class="corner-accent top-right"></div>
+    <div class="corner-accent bottom-left"></div>
+    <div class="corner-accent bottom-right"></div>
 
     <!-- Header Section -->
     <div class="header">
@@ -312,7 +239,7 @@
       </div>
 
       <div class="portrait-box">
-        <img src="periya_maruthu.jpeg" alt="Periya Maruthu">
+        <img src="../assets/images/periya_maruthu.jpeg" alt="Periya Maruthu">
       </div>
     </div>
 
@@ -344,7 +271,7 @@
       </div>
 
       <div class="portrait-box">
-        <img src="chinna_maruthu.jpeg" alt="Chinna Maruthu">
+        <img src="../assets/images/chinna_maruthu.jpeg" alt="Chinna Maruthu">
       </div>
     </div>
 
@@ -376,7 +303,7 @@
       </div>
 
       <div class="portrait-box">
-        <img src="velu_nachiyar.jpeg" alt="Queen Velu Nachiyar">
+        <img src="../assets/images/velu_nachiyar.jpeg" alt="Queen Velu Nachiyar">
       </div>
     </div>
 
