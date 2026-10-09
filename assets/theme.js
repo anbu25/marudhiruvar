@@ -39,7 +39,7 @@
   if (!bar) { bar = document.createElement('div'); bar.className = 'topbar floating'; body.appendChild(bar); }
   var sw = document.createElement('div');
   sw.className = 'lang-sw'; sw.setAttribute('role', 'radiogroup'); sw.setAttribute('aria-label', 'Language / மொழி');
-  [['en', 'English'], ['ta', 'தமிழ்'], ['both', 'EN+த']].forEach(function (o) {
+  [['both', 'EN+த'], ['en', 'English'], ['ta', 'தமிழ்']].forEach(function (o) {
     var lb = document.createElement('label'), r = document.createElement('input');
     r.type = 'radio'; r.name = 'lang'; r.value = o[0]; r.checked = lang === o[0];
     r.onchange = function () { lang = o[0]; try { localStorage.setItem(LKEY, lang); } catch (e) {} applyLang(); };
