@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Marudhiruvar - Scan to Read</title>
+<style>
+@import url('assets/fonts/fonts.css');
+*{box-sizing:border-box;margin:0;padding:0}
+@page{size:A4 portrait;margin:0}
+body{background:#cdb98a;display:flex;justify-content:center;padding:24px 0;font-family:'Noto Sans','Noto Sans Tamil',sans-serif;color:#2b1608;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+.sheet{width:210mm;height:297mm;position:relative;overflow:hidden;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:16mm 14mm;
+  background:radial-gradient(ellipse at 50% 0%,rgba(255,244,214,.75) 0%,rgba(255,244,214,0) 60%),#ead8ab}
+.sheet::before{content:"";position:absolute;inset:4mm;border:5px solid transparent;outline:1px solid rgba(138,36,24,.8);outline-offset:3px;border-image:linear-gradient(135deg,#c98a12,#8a2418 50%,#c98a12) 1}
+.sheet::after{content:"";position:absolute;inset:6.5mm;border:1.5px solid rgba(138,36,24,.85)}
+.banner{display:inline-block;padding:8px 40px;background:linear-gradient(180deg,#a3141a,#7a0f14 55%,#3a0508);border:2px solid #e8b84a;border-radius:14px/22px;box-shadow:inset 0 0 0 4px #7a0f14,inset 0 0 0 5px rgba(232,184,74,.6)}
+.banner h1{font-family:'Cinzel',serif;font-weight:900;font-size:40px;letter-spacing:5px;color:#ffd56b}
+.ta{font-family:'Noto Serif Tamil',serif;font-weight:700;color:#7a1e12;font-size:24px;margin-top:10mm}
+.en{font-family:'Cinzel',serif;font-weight:700;letter-spacing:3px;color:#5e140c;font-size:14px;margin-top:3mm}
+.divider{width:200px;height:2px;background:linear-gradient(90deg,transparent,#8a2418,transparent);margin:9mm auto}
+.qr{background:#fff;padding:7mm;border:3px solid #8a2418;border-radius:6mm;box-shadow:0 0 0 3px #f8eed3,0 0 0 4px #c98a12}
+.qr img{display:block;width:105mm;height:105mm}
+.scan-en{font-family:'Cinzel',serif;font-weight:800;font-size:26px;letter-spacing:3px;color:#8a2418;margin-top:12mm}
+.scan-ta{font-family:'Noto Serif Tamil',serif;font-weight:700;font-size:21px;color:#7a1e12;margin-top:3mm}
+.url{font-family:'Noto Sans',sans-serif;font-weight:700;font-size:17px;color:#2b1608;margin-top:9mm;letter-spacing:.5px}
+.foot{position:absolute;bottom:13mm;left:0;right:0;font-family:'Cinzel',serif;font-size:10px;letter-spacing:2.5px;color:#7a1e12}
+@media print{body{padding:0;background:none;display:block}}
+</style>
+</head>
+<body>
+<div class="sheet">
+  <div class="banner"><h1>MARUDHIRUVAR</h1></div>
+  <div class="ta">மருதிருவர் • வீரத்தின் அடையாளம்</div>
+  <div class="en">HEROES OF SIVAGANGA</div>
+  <div class="divider"></div>
+  <div class="qr"><img src="assets/qr.svg" alt="QR code to open the Marudhiruvar site"></div>
+  <div class="scan-en">SCAN TO READ ONLINE</div>
+  <div class="scan-ta">இணையத்தில் படிக்க ஸ்கேன் செய்யுங்கள்</div>
+  <div class="url">bit.ly/4dx0321</div>
+  <div class="foot">HONORING THE VALOR OF SIVAGANGA • TAMIL NADU HISTORY</div>
+</div>
+</body>
+</html>
