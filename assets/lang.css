@@ -36,3 +36,6 @@ body.lang-ta .lt-hide{display:none !important}
 .parchment .home-btn{background:rgba(248,238,211,.95);border-color:#8a2418;color:#8a2418}
 .parchment .home-btn:hover{background:#8a2418;color:#fff3d6}
 @media (max-width:420px){.home-btn{padding:0 10px}}
+
+/* QR is for printed/PDF copies; hide it on the live site */
+@media screen{.qrbar{display:none !important}}
