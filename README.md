@@ -12,6 +12,7 @@ Bilingual (English/Tamil) intro for middle/high school students attending the st
 ## Files
 - `assets/images/`: character portraits
 - `assets/fonts/`: local web fonts (Cinzel, Noto Sans/Serif Tamil)
+- `assets/theme.js`: dark/light theme. The landing page has the switch (☀️/🌙); the other pages follow the saved choice; `?theme=dark|light` overrides
 - `assets/mobile.css`: phone layout (screen only; print/PDF unaffected)
 - `assets/qr.svg`: QR code for `https://anbu25.github.io/marudhiruvar/`
 - `assets/scenes/`: optional scene art slots (see its README)

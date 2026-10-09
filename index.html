@@ -4,7 +4,7 @@
 <style>
 @import url('assets/fonts/fonts.css');
 *{box-sizing:border-box;margin:0;padding:0}
-body{min-height:100vh;background:radial-gradient(ellipse at 50% 0%,#4a0a0e 0%,rgba(74,10,14,0) 60%),linear-gradient(180deg,#160405,#0c0203);color:#fff8e6;font-family:'Noto Sans','Noto Sans Tamil',sans-serif;padding:28px 16px 40px;display:flex;flex-direction:column;align-items:center}
+body{min-height:100vh;background:radial-gradient(ellipse at 50% 0%,#4a0a0e 0%,rgba(74,10,14,0) 60%),linear-gradient(180deg,#160405,#0c0203);color:#fff8e6;font-family:'Noto Sans','Noto Sans Tamil',sans-serif;padding:64px 16px 40px;display:flex;flex-direction:column;align-items:center}
 .wrap{width:100%;max-width:560px}
 h1{font-family:'Cinzel',serif;font-weight:900;font-size:34px;letter-spacing:4px;text-align:center;color:#ffd56b;margin-top:4px}
 .ta{font-family:'Noto Serif Tamil',serif;font-weight:700;text-align:center;color:#ffe29a;font-size:18px;margin-top:6px}
@@ -20,7 +20,16 @@ h1{font-family:'Cinzel',serif;font-weight:900;font-size:34px;letter-spacing:4px;
 .dl a{color:#ffd56b}
 h2{font-family:'Cinzel',serif;font-size:12px;letter-spacing:2px;color:#ffd56b;margin:22px 0 8px;text-align:center}
 .foot{font-family:'Cinzel',serif;font-size:10px;letter-spacing:2px;color:#ffd56b;text-align:center;margin-top:26px}
-</style></head><body><div class="wrap">
+.theme-btn{position:fixed;top:12px;right:12px;width:44px;height:44px;border-radius:50%;border:2px solid #e8b84a;background:rgba(22,4,5,.88);font-size:20px;line-height:1;cursor:pointer}
+/* light (parchment) */
+body.parchment{background:radial-gradient(ellipse at 50% 0%,rgba(255,244,214,.75) 0%,rgba(255,244,214,0) 60%),#ead8ab;color:#2b1608}
+.parchment h1{color:#7a1e12}.parchment .ta{color:#7a1e12}.parchment .sub{color:#5e140c}
+.parchment .trio img{border-color:#8a2418}
+.parchment .card{background:#f8eed3;border-color:#8a2418}.parchment .card:active,.parchment .card:hover{background:#f1e2bd}
+.parchment .card b,.parchment h2,.parchment .foot{color:#8a2418}
+.parchment .card em,.parchment .dl{color:#3a2410}.parchment .dl a{color:#8a2418}
+.parchment .theme-btn{background:rgba(248,238,211,.95);border-color:#8a2418}
+</style></head><body data-theme-toggle><div class="wrap">
 <h1>MARUDHIRUVAR</h1>
 <div class="ta">மருதிருவர் • வீரத்தின் அடையாளம்</div>
 <div class="sub">HEROES OF SIVAGANGA</div>
@@ -37,4 +46,4 @@ Heroes: <a href="downloads/poster_a4_dark.pdf">dark</a> • <a href="downloads/p
 Play guide: <a href="downloads/play-guide_a4_dark.pdf">dark</a> • <a href="downloads/play-guide_a4_parchment.pdf">parchment</a>
 </div>
 <div class="foot">HONORING THE VALOR OF SIVAGANGA</div>
-</div></body></html>
+</div><script src="assets/theme.js"></script></body></html>

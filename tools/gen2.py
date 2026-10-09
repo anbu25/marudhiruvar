@@ -185,6 +185,6 @@ html=f'''<!DOCTYPE html>
 <body>
 {page1}
 {page2}
-<script>if (new URLSearchParams(location.search).get('theme') === 'parchment') document.body.classList.add('parchment');</script>
+<script src="assets/theme.js"></script>
 </body></html>'''
 open(os.path.join(ROOT,'play-guide.html'),'w',encoding='utf-8').write(html)
