@@ -4,7 +4,9 @@ body { padding: 0 !important; display: block !important; }
 .poster-container { width: 100% !important; height: auto !important; min-height: 0 !important; overflow: visible !important; padding: 22px 16px 20px !important; margin-bottom: 14px; box-shadow: none !important; }
 .poster-container::before { inset: 6px !important; }
 .poster-container::after { inset: 10px !important; }
-.title-main { font-size: 28px !important; letter-spacing: 3px !important; }
+.title-main { font-size: clamp(20px, 7.5vw, 30px) !important; letter-spacing: 0.1em !important; }
+.title-banner { padding: 5px 18px !important; max-width: 100%; }
+.title-sub-ta { font-size: clamp(14px, 4.4vw, 16px) !important; }
 .title-sub-ta { font-size: 16px !important; }
 .title-sub-en, .part { font-size: 10px !important; letter-spacing: 1.5px !important; }
 
