@@ -41,6 +41,7 @@ svg=f'''<svg viewBox="-14 0 {W+14:.0f} {H:.0f}" xmlns="http://www.w3.org/2000/sv
 CSS=re.search(r'<style>(.*?)</style>',open(os.path.join(HERE,'plot_tpl.html'),encoding='utf-8').read(),re.S).group(1)
 # drop single-page specific bits we override
 EXTRA='''
+    .trio .card:nth-child(1), .trio .card:nth-child(2) { flex: 1.2; } .trio .card:nth-child(3) { flex: 0.9; }
     body { flex-direction: column; justify-content: flex-start; align-items: center; gap: 24px; }
     @media print { body { gap: 0; } .poster-container { break-after: page; page-break-after: always; } .poster-container:last-child { break-after: auto; page-break-after: auto; } }
     .part { font-family: 'Cinzel', serif; font-size: 10px; letter-spacing: 3px; color: #ffd56b; margin-top: 3px; }
@@ -119,20 +120,20 @@ def trio(k,name,ta,role,rta,pos=''):
     return f'''<div class="card"><div class="pic"><img src="{IMG[k]}" alt="{name}" style="{pos}"></div><div class="nm">{name}</div><div class="nt">{ta}</div><div class="rl">{role}</div><div class="rt">{rta}</div></div>'''
 def head(sub_en,part):
     return f'''<div class="header"><div class="title-banner"><div class="title-main">THE STORY</div></div>
- <div class="title-sub-ta">மூவரின் வீரக் காவியம்</div><div class="title-sub-en">{sub_en}</div><div class="part">{part}</div><div class="divider"></div></div>'''
+ <div class="title-sub-ta">மருதிருவரின் வீரக் காவியம்</div><div class="title-sub-en">{sub_en}</div><div class="part">{part}</div><div class="divider"></div></div>'''
 FOOT='<div class="footer">HONORING THE VALOR OF SIVAGANGA • TAMIL NADU HISTORY</div>'
 
 page1=f'''<div class="poster-container p1">
- {head("THREE HEROES • ONE FIGHT FOR FREEDOM","PART I • 1730–1780 • FALL AND RISE")}
+ {head("MARUDHIRUVAR • TWO BROTHERS, ONE QUEEN, ONE FIGHT FOR FREEDOM","PART I • 1730–1780 • FALL AND RISE")}
  <div class="trio">
   {trio('p','PERIYA MARUTHU','பெரிய மருது','The Commander: a fearless warrior who protects Sivaganga.','வீரமிகு படைத்தளபதி; சிவகங்கையின் காவலர்.')}
-  {trio('v','QUEEN VELU NACHIYAR','ராணி வேலு நாச்சியார்','The Queen: a fighter who refuses to give up her kingdom.','நாட்டை மீட்கும் உறுதி கொண்ட வீரமங்கை.','object-position:25% top')}
   {trio('c','CHINNA MARUTHU','சின்ன மருது','The Strategist: a clever leader who unites the rulers.','அரசர்களை ஒன்றிணைத்த போர்வியூக வல்லுநர்.')}
+  {trio('v','QUEEN VELU NACHIYAR','ராணி வேலு நாச்சியார்','The Queen and their ally: refuses to give up her kingdom.','அவர்களின் தலைவி; நாட்டை மீட்கும் உறுதி கொண்ட வீரமங்கை.','object-position:25% top')}
  </div>
  <div class="col">
- {chap(1,'1730–72','Three Heroes Rise','Velu Nachiyar, princess of Ramnad, trains in Silambam, archery and horse riding, then marries King Muthu Vaduganathar of Sivaganga. Nearby, Periya Maruthu, a master of the Valari, and Chinna Maruthu, a sharp strategist, win fame as fearless warriors.','இராமநாதபுர இளவரசி வேலு நாச்சியார் சிலம்பம், வில், குதிரையேற்றம் பயின்று, சிவகங்கை மன்னர் முத்து வடுகநாதரை மணந்தார். அருகில், வளரி வீரர் பெரிய மருதுவும் கூர்மையான போர்வியூக வல்லுநர் சின்ன மருதுவும் அஞ்சா வீரர்களாகப் புகழ் பெற்றனர்.','Velu Nachiyar intro • Marudhu brothers intro • “Veeram” • “Sara Sara”','ch1')}
+ {chap(1,'1730–72','The Heroes Rise','Velu Nachiyar, princess of Ramnad, trains in Silambam, archery and horse riding, then marries King Muthu Vaduganathar of Sivaganga. Nearby, Periya Maruthu, a master of the Valari, and Chinna Maruthu, a sharp strategist, win fame as fearless warriors.','இராமநாதபுர இளவரசி வேலு நாச்சியார் சிலம்பம், வில், குதிரையேற்றம் பயின்று, சிவகங்கை மன்னர் முத்து வடுகநாதரை மணந்தார். அருகில், வளரி வீரர் பெரிய மருதுவும் கூர்மையான போர்வியூக வல்லுநர் சின்ன மருதுவும் அஞ்சா வீரர்களாகப் புகழ் பெற்றனர்.','Velu Nachiyar intro • Marudhu brothers intro • “Veeram” • “Sara Sara”','ch1')}
  {chap(2,'1772','Betrayal at Kalaiyar Koil','The British East India Company joins the Nawab of Arcot and attacks Sivaganga. King Muthu Vaduganathar is killed in battle. Queen Velu Nachiyar escapes with her daughter Vellachi, vowing to win her kingdom back.','கிழக்கிந்தியக் கம்பெனி, ஆர்க்காடு நவாபுடன் கூட்டுச் சேர்ந்து சிவகங்கையைத் தாக்கியது. போரில் மன்னர் வீரமரணம் அடைந்தார். ராணி வேலு நாச்சியார் மகள் வெள்ளச்சியுடன் தப்பி, நாட்டை மீட்க உறுதி ஏற்றார்.','Nawab of Arcot • Wedding • Killing of the King, Lament & Oath • The Escape','ch2')}
- {chap(3,'1772','Three Heroes Unite','As the play tells it, the queen in hiding meets the Maruthu brothers. Periya Maruthu offers his sword, Chinna Maruthu his strategy, and the three pledge to win Sivaganga back.','நாடகத்தில் காட்டப்படுவது போல், தலைமறைவான ராணி மருது சகோதரர்களைச் சந்தித்தார். பெரிய மருது தம் வாளையும் சின்ன மருது தம் போர்த்திட்டத்தையும் அளிக்க, மூவரும் சிவகங்கையை மீட்க உறுதி ஏற்றனர்.','The hunt • Velu Nachiyar meets Marudhu Iruvar','ch3')}
+ {chap(3,'1772','The Heroes Unite','As the play tells it, the queen in hiding meets the Maruthu brothers. Periya Maruthu offers his sword, Chinna Maruthu his strategy, and the three pledge to win Sivaganga back.','நாடகத்தில் காட்டப்படுவது போல், தலைமறைவான ராணி மருது சகோதரர்களைச் சந்தித்தார். பெரிய மருது தம் வாளையும் சின்ன மருது தம் போர்த்திட்டத்தையும் அளிக்க, மூவரும் சிவகங்கையை மீட்க உறுதி ஏற்றனர்.','The hunt • Velu Nachiyar meets Marudhu Iruvar','ch3')}
  {chap(4,'1772–80','An Ally in Exile','At Virupachi, Hyder Ali of Mysore shelters the queen and supports her with soldiers and arms. For eight years she builds her army, while the brothers gather fighters and loyal supporters in Sivaganga.','விருப்பாட்சியில் மைசூர் ஹைதர் அலி ராணிக்கு அடைக்கலமும் படை, ஆயுத உதவியும் அளித்தார். எட்டு ஆண்டுகள் ராணி படை திரட்ட, மருது சகோதரர்கள் சிவகங்கையில் வீரர்களையும் ஆதரவாளர்களையும் திரட்டினர்.','Hyder Ali scene','ch4')}
  {chap(5,'1780','Sivaganga Is Won Back','The queen strikes with Kuyili’s Women’s Army (Udaiyaal Padai), the brothers fighting at her side. Legend says Kuyili gave her life to destroy the British weapons store. Sivaganga is free, and the brothers become her trusted ministers and commanders.','குயிலியின் "உடையாள் படை"யுடனும், அவருடன் நின்று போராடிய மருது சகோதரர்களுடனும் ராணி தாக்கினார். ஆயுதக் கிடங்கை அழிக்க குயிலி உயிர்த்தியாகம் செய்ததாகக் கூறப்படுகிறது. சிவகங்கை மீண்டது; சகோதரர்கள் அமைச்சர்களும் தளபதிகளும் ஆனார்கள்.','Village attack • Back to the palace','ch5')}
  </div>
@@ -143,7 +144,7 @@ def node(av,y,e,t):
     imgs=''.join(f'<div class="av"><img src="{IMG[k]}" alt="" style="{"object-position:25% top" if k=="v" else ""}"></div>' for k in av[:1])
     return f'<div class="tl-node">{imgs}<div class="y">{y}</div><div class="e">{e}</div><div class="t">{t}</div></div>'
 page2=f'''<div class="poster-container">
- {head("THREE HEROES • ONE FIGHT FOR FREEDOM","PART II • 1780–1801 • GUARDIANS OF A KINGDOM")}
+ {head("MARUDHIRUVAR • TWO BROTHERS, ONE QUEEN, ONE FIGHT FOR FREEDOM","PART II • 1780–1801 • GUARDIANS OF A KINGDOM")}
  <div class="row2">
   <div class="card mapcard"><div class="card-title">THE MAP OF THE STRUGGLE</div><div class="card-title-ta">போராட்டத்தின் வரைபடம்</div>
    {svg}
@@ -171,7 +172,7 @@ page2=f'''<div class="poster-container">
    {node('c','1801','Oomaithurai finds refuge; Jambudvipa Proclamation','ஊமைத்துரைக்கு அடைக்கலம்; பிரகடனம்')}
    {node('p','1801','Oct: Maruthu brothers hanged at Thiruppathur','மருது சகோதரர்களின் தியாகம்')}
   </div></div>
- <div class="closing"><div class="c-en">THREE HEROES. ONE DREAM OF FREEDOM.</div><div class="c-ta">மூன்று வீரர்கள்; ஒரே சுதந்திரக் கனவு.</div></div>
+ <div class="closing"><div class="c-en">TWO BROTHERS. ONE QUEEN. ONE DREAM OF FREEDOM.</div><div class="c-ta">இரு சகோதரர்கள்; ஒரு ராணி; ஒரே சுதந்திரக் கனவு.</div></div>
  {FOOT}
 </div>'''
 CSS_LOCAL=re.sub(r"@import url\('https://fonts.googleapis.com[^']*'\);","@import url('assets/fonts/fonts.css');",CSS)

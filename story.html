@@ -152,6 +152,7 @@
     .parchment .tl-node b { background: radial-gradient(circle at 35% 30%, #fff1bf, #c98a12); border-color: #8a2418; }
     .parchment .footer { color: #7a1e12; }
   
+    .trio .card:nth-child(1), .trio .card:nth-child(2) { flex: 1.2; } .trio .card:nth-child(3) { flex: 0.9; }
     body { flex-direction: column; justify-content: flex-start; align-items: center; gap: 24px; }
     @media print { body { gap: 0; } .poster-container { break-after: page; page-break-after: always; } .poster-container:last-child { break-after: auto; page-break-after: auto; } }
     .part { font-family: 'Cinzel', serif; font-size: 10px; letter-spacing: 3px; color: #ffd56b; margin-top: 3px; }
@@ -220,6 +221,7 @@
     .parchment .arrfill { fill: #c01f12; } .parchment .arrfill2 { fill: #8a2418; }
     .row2 .legend { margin-top: 5px; }
 
+    .trio .card:nth-child(1), .trio .card:nth-child(2) { flex: 1.2; } .trio .card:nth-child(3) { flex: 0.9; }
     /* Print fixes (must come last: earlier print rules lost to later base rules of equal specificity) */
     @media print {
       .poster-container { box-shadow: none !important; }
@@ -240,27 +242,27 @@
 <body>
 <div class="poster-container p1">
  <div class="header"><div class="title-banner"><div class="title-main">THE STORY</div></div>
- <div class="title-sub-ta">மூவரின் வீரக் காவியம்</div><div class="title-sub-en">THREE HEROES • ONE FIGHT FOR FREEDOM</div><div class="part">PART I • 1730–1780 • FALL AND RISE</div><div class="divider"></div></div>
+ <div class="title-sub-ta">மருதிருவரின் வீரக் காவியம்</div><div class="title-sub-en">MARUDHIRUVAR • TWO BROTHERS, ONE QUEEN, ONE FIGHT FOR FREEDOM</div><div class="part">PART I • 1730–1780 • FALL AND RISE</div><div class="divider"></div></div>
  <div class="trio">
   <div class="card"><div class="pic"><img src="assets/images/periya_maruthu.jpeg" alt="PERIYA MARUTHU" style=""></div><div class="nm">PERIYA MARUTHU</div><div class="nt">பெரிய மருது</div><div class="rl">The Commander: a fearless warrior who protects Sivaganga.</div><div class="rt">வீரமிகு படைத்தளபதி; சிவகங்கையின் காவலர்.</div></div>
-  <div class="card"><div class="pic"><img src="assets/images/velu_nachiyar.jpeg" alt="QUEEN VELU NACHIYAR" style="object-position:25% top"></div><div class="nm">QUEEN VELU NACHIYAR</div><div class="nt">ராணி வேலு நாச்சியார்</div><div class="rl">The Queen: a fighter who refuses to give up her kingdom.</div><div class="rt">நாட்டை மீட்கும் உறுதி கொண்ட வீரமங்கை.</div></div>
   <div class="card"><div class="pic"><img src="assets/images/chinna_maruthu.jpeg" alt="CHINNA MARUTHU" style=""></div><div class="nm">CHINNA MARUTHU</div><div class="nt">சின்ன மருது</div><div class="rl">The Strategist: a clever leader who unites the rulers.</div><div class="rt">அரசர்களை ஒன்றிணைத்த போர்வியூக வல்லுநர்.</div></div>
+  <div class="card"><div class="pic"><img src="assets/images/velu_nachiyar.jpeg" alt="QUEEN VELU NACHIYAR" style="object-position:25% top"></div><div class="nm">QUEEN VELU NACHIYAR</div><div class="nt">ராணி வேலு நாச்சியார்</div><div class="rl">The Queen and their ally: refuses to give up her kingdom.</div><div class="rt">அவர்களின் தலைவி; நாட்டை மீட்கும் உறுதி கொண்ட வீரமங்கை.</div></div>
  </div>
  <div class="col">
  <div class="card chapter"><div class="medal"><div class="num">1</div><div class="yr">1730–72</div></div>
- <div class="ch-body"><div class="ch-title">Three Heroes Rise</div><div class="ch-en">Velu Nachiyar, princess of Ramnad, is born in 1730 and trains in Silambam, archery and horse riding. She marries King Muthu Vaduganathar of Sivaganga. The Maruthu brothers, Periya Maruthu a master of the Valari and Chinna Maruthu a sharp strategist, rise as loyal, fearless officers of the kingdom.</div><div class="ch-ta">1730-இல் பிறந்த இராமநாதபுர இளவரசி வேலு நாச்சியார் சிலம்பம், வில், குதிரையேற்றம் பயின்று, சிவகங்கை மன்னர் முத்து வடுகநாதரை மணந்தார். வளரி வீரர் பெரிய மருதுவும் போர்வியூக வல்லுநர் சின்ன மருதுவும் அரசின் விசுவாசமிக்க, அஞ்சா வீரர்களாக உயர்ந்தனர்.</div></div></div>
+ <div class="ch-body"><div class="ch-title">The Heroes Rise</div><div class="ch-en">Periya Maruthu, a master of the Valari, and Chinna Maruthu, a sharp strategist, rise as loyal, fearless officers of Sivaganga. Velu Nachiyar, princess of Ramnad, is born in 1730, trains in Silambam, archery and horse riding, and marries King Muthu Vaduganathar of Sivaganga.</div><div class="ch-ta">வளரி வீரர் பெரிய மருதுவும் போர்வியூக வல்லுநர் சின்ன மருதுவும் சிவகங்கையின் விசுவாசமிக்க, அஞ்சா வீரர்களாக உயர்ந்தனர். 1730-இல் பிறந்த இராமநாதபுர இளவரசி வேலு நாச்சியார் சிலம்பம், வில், குதிரையேற்றம் பயின்று, சிவகங்கை மன்னர் முத்து வடுகநாதரை மணந்தார்.</div></div></div>
  <div class="card chapter"><div class="medal"><div class="num">2</div><div class="yr">1772</div></div>
  <div class="ch-body"><div class="ch-title">Betrayal at Kalaiyar Koil</div><div class="ch-en">The British East India Company joins the Nawab of Arcot and attacks Sivaganga. King Muthu Vaduganathar is killed in battle. Queen Velu Nachiyar escapes with her daughter Vellachi, vowing to win her kingdom back.</div><div class="ch-ta">கிழக்கிந்தியக் கம்பெனி, ஆர்க்காடு நவாபுடன் கூட்டுச் சேர்ந்து சிவகங்கையைத் தாக்கியது. போரில் மன்னர் வீரமரணம் அடைந்தார். ராணி வேலு நாச்சியார் மகள் வெள்ளச்சியுடன் தப்பி, நாட்டை மீட்க உறுதி ஏற்றார்.</div></div></div>
- <div class="card chapter"><div class="medal"><div class="num">3</div><div class="yr">1772–80</div></div>
- <div class="ch-body"><div class="ch-title">Exile and an Ally</div><div class="ch-en">The queen hides in the forests with the Maruthu brothers, who guard her and gather loyal supporters. At Virupachi, Hyder Ali of Mysore shelters her and supplies soldiers and arms. For eight years she builds her army and her alliances, with the brothers rallying fighters across the Sivaganga region.</div><div class="ch-ta">ராணி மருது சகோதரர்களின் பாதுகாப்புடன் காடுகளில் மறைந்து வாழ்ந்தார்; அவர்கள் விசுவாசிகளைத் திரட்டினர். விருப்பாட்சியில் மைசூர் ஹைதர் அலி அடைக்கலமும் படை, ஆயுத உதவியும் அளித்தார். எட்டு ஆண்டுகள் ராணி படையையும் கூட்டணிகளையும் வலுப்படுத்த, சகோதரர்கள் சிவகங்கைப் பகுதியில் வீரர்களைத் திரட்டினர்.</div></div></div>
- <div class="card chapter"><div class="medal"><div class="num">4</div><div class="yr">1780</div></div>
- <div class="ch-body"><div class="ch-title">Sivaganga Is Won Back</div><div class="ch-en">The queen strikes with Kuyili’s Women’s Army (Udaiyaal Padai), the brothers fighting at her side. Legend says Kuyili gave her life to destroy the British weapons store. Sivaganga is free, and the brothers become her trusted ministers and commanders.</div><div class="ch-ta">குயிலியின் "உடையாள் படை"யுடனும், அவருடன் நின்று போராடிய மருது சகோதரர்களுடனும் ராணி தாக்கினார். ஆயுதக் கிடங்கை அழிக்க குயிலி உயிர்த்தியாகம் செய்ததாகக் கூறப்படுகிறது. சிவகங்கை மீண்டது; சகோதரர்கள் அமைச்சர்களும் தளபதிகளும் ஆனார்கள்.</div></div></div>
+<div class="card chapter"><div class="medal"><div class="num">3</div><div class="yr">1772–80</div></div>
+ <div class="ch-body"><div class="ch-title">Exile and an Ally</div><div class="ch-en">The Maruthu brothers guard the hiding queen and gather loyal supporters across the Sivaganga region. At Virupachi, Hyder Ali of Mysore shelters her and supplies soldiers and arms. For eight years the brothers rally fighters while she builds her army and her alliances.</div><div class="ch-ta">மருது சகோதரர்கள் காடுகளில் மறைந்த ராணியைக் காத்து, சிவகங்கைப் பகுதியில் விசுவாசிகளைத் திரட்டினர். விருப்பாட்சியில் மைசூர் ஹைதர் அலி அடைக்கலமும் படை, ஆயுத உதவியும் அளித்தார். எட்டு ஆண்டுகள் சகோதரர்கள் வீரர்களைத் திரட்ட, ராணி படையையும் கூட்டணிகளையும் வலுப்படுத்தினார்.</div></div></div>
+<div class="card chapter"><div class="medal"><div class="num">4</div><div class="yr">1780</div></div>
+ <div class="ch-body"><div class="ch-title">Sivaganga Is Won Back</div><div class="ch-en">The Maruthu brothers fight at the queen’s side as she strikes with Kuyili’s Women’s Army (Udaiyaal Padai). Legend says Kuyili gave her life to destroy the British weapons store. Sivaganga is free, and the brothers become her trusted ministers and commanders.</div><div class="ch-ta">குயிலியின் "உடையாள் படை"யுடன் ராணி தாக்க, மருது சகோதரர்கள் அவருடன் நின்று போராடினர். ஆயுதக் கிடங்கை அழிக்க குயிலி உயிர்த்தியாகம் செய்ததாகக் கூறப்படுகிறது. சிவகங்கை மீண்டது; சகோதரர்கள் அமைச்சர்களும் தளபதிகளும் ஆனார்கள்.</div></div></div>
  </div>
  <div class="footer">HONORING THE VALOR OF SIVAGANGA • TAMIL NADU HISTORY</div>
 </div>
 <div class="poster-container">
  <div class="header"><div class="title-banner"><div class="title-main">THE STORY</div></div>
- <div class="title-sub-ta">மூவரின் வீரக் காவியம்</div><div class="title-sub-en">THREE HEROES • ONE FIGHT FOR FREEDOM</div><div class="part">PART II • 1780–1801 • GUARDIANS OF A KINGDOM</div><div class="divider"></div></div>
+ <div class="title-sub-ta">மருதிருவரின் வீரக் காவியம்</div><div class="title-sub-en">MARUDHIRUVAR • TWO BROTHERS, ONE QUEEN, ONE FIGHT FOR FREEDOM</div><div class="part">PART II • 1780–1801 • GUARDIANS OF A KINGDOM</div><div class="divider"></div></div>
  <div class="row2">
   <div class="card mapcard"><div class="card-title">THE MAP OF THE STRUGGLE</div><div class="card-title-ta">போராட்டத்தின் வரைபடம்</div>
    <svg viewBox="-14 0 273 348" xmlns="http://www.w3.org/2000/svg" class="map mainmap"><defs><marker id="a1" markerWidth="9" markerHeight="9" refX="7" refY="4.5" markerUnits="userSpaceOnUse" orient="auto"><path d="M0,0 L9,4.5 L0,9 z" class="arrfill"/></marker><marker id="a2" markerWidth="9" markerHeight="9" refX="7" refY="4.5" markerUnits="userSpaceOnUse" orient="auto"><path d="M0,0 L9,4.5 L0,9 z" class="arrfill2"/></marker><marker id="a3" markerWidth="9" markerHeight="9" refX="7" refY="4.5" markerUnits="userSpaceOnUse" orient="auto"><path d="M0,0 L9,4.5 L0,9 z" class="arrfill3"/></marker><marker id="a4" markerWidth="9" markerHeight="9" refX="7" refY="4.5" markerUnits="userSpaceOnUse" orient="auto"><path d="M0,0 L9,4.5 L0,9 z" class="arrfill4"/></marker><marker id="a5" markerWidth="9" markerHeight="9" refX="7" refY="4.5" markerUnits="userSpaceOnUse" orient="auto"><path d="M0,0 L9,4.5 L0,9 z" class="arrfill5"/></marker></defs>
@@ -316,7 +318,7 @@
    <div class="tl-node"><div class="av"><img src="assets/images/chinna_maruthu.jpeg" alt="" style=""></div><div class="y">1801</div><div class="e">Oomaithurai’s refuge; Proclamation</div><div class="t">ஊமைத்துரை; பிரகடனம்</div></div>
    <div class="tl-node"><div class="av"><img src="assets/images/periya_maruthu.jpeg" alt="" style=""></div><div class="y">Oct 1801</div><div class="e">Brothers hanged at Thiruppathur</div><div class="t">மருது சகோதரர்களின் தியாகம்</div></div>
   </div></div>
- <div class="closing"><div class="c-en">THREE HEROES. ONE DREAM OF FREEDOM.</div><div class="c-ta">மூன்று வீரர்கள்; ஒரே சுதந்திரக் கனவு.</div></div>
+ <div class="closing"><div class="c-en">TWO BROTHERS. ONE QUEEN. ONE DREAM OF FREEDOM.</div><div class="c-ta">இரு சகோதரர்கள்; ஒரு ராணி; ஒரே சுதந்திரக் கனவு.</div></div>
  <div class="qrbar"><img src="assets/qr.svg" alt="QR code"><div><div class="q-en">SCAN TO READ ONLINE</div><div class="q-ta">இணையத்தில் படிக்க ஸ்கேன் செய்யுங்கள்</div></div></div>
  <div class="footer">HONORING THE VALOR OF SIVAGANGA • TAMIL NADU HISTORY</div>
 </div>
