@@ -36,7 +36,12 @@
   };
   label();
   var bar = document.querySelector('.topbar');
-  if (!bar) { bar = document.createElement('div'); bar.className = 'topbar floating'; body.appendChild(bar); }
+  if (!bar) { bar = document.createElement('div'); bar.className = 'topbar floating'; body.appendChild(bar);
+    var home = document.createElement('a');
+    home.className = 'home-btn'; home.href = 'index.html';
+    home.innerHTML = '<span aria-hidden="true">‹</span> <span class="l-en">Home</span><span class="l-ta">முகப்பு</span>';
+    bar.appendChild(home);
+  }
   var sw = document.createElement('div');
   sw.className = 'lang-sw'; sw.setAttribute('role', 'radiogroup'); sw.setAttribute('aria-label', 'Language / மொழி');
   [['both', 'EN+த'], ['en', 'English'], ['ta', 'தமிழ்']].forEach(function (o) {
