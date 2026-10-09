@@ -71,6 +71,15 @@ page2=f'''<div class="poster-container">
 </div>'''
 CSS_LOCAL=re.sub(r"@import url\('https://fonts.googleapis.com[^']*'\);","@import url('assets/fonts/fonts.css');",CSS)
 QRCSS='''
+    /* Print fixes (must come last: earlier print rules lost to later base rules of equal specificity) */
+    @media print {
+      .poster-container { box-shadow: none !important; }
+      .parchment .card, .parchment .hero-card { box-shadow: inset 0 0 0 3px #f8eed3, inset 0 0 0 4px rgba(201,138,18,0.55) !important; }
+      body:not(.parchment) .card, body:not(.parchment) .hero-card, body:not(.parchment) .medal, body:not(.parchment) .pic, body:not(.parchment) .portrait-box, body:not(.parchment) .icon { box-shadow: none !important; }
+      .parchment .pic, .parchment .portrait-box { box-shadow: 0 0 0 2px #f8eed3, 0 0 0 3px #c98a12 !important; }
+      .parchment .medal, .parchment .tl-node b { box-shadow: none !important; }
+    }
+
     .qrbar { display: flex; justify-content: center; align-items: center; gap: 10px; margin-top: 5px; }
     .qrbar img { width: 15mm; height: 15mm; background: #fff; padding: 1mm; border-radius: 2mm; }
     .qrbar .q-en { font-family: 'Cinzel', serif; font-weight: 800; font-size: 10px; letter-spacing: 1px; color: #ffd56b; }
