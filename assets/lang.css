@@ -11,3 +11,22 @@ body.lang-en .l-tl { display: none !important; }
 body.lang-ta .icon.l-tl{display:inline-flex !important}
 body.lang-ta .bullet-desc-ta{font-size:13px}
 body.lang-ta .lt-hide{display:none !important}
+
+/* Language + theme controls (built by theme.js) */
+.lang-sw{display:inline-flex;border:1.5px solid #e8b84a;border-radius:999px;overflow:hidden;margin-right:8px;vertical-align:middle}
+.lang-sw label{cursor:pointer;font-size:13px;font-weight:700;padding:6px 11px;color:#ffd56b;line-height:1}
+.lang-sw input{position:absolute;opacity:0;pointer-events:none}
+.lang-sw label:has(input:checked){background:#e8b84a;color:#2a0507}
+.lang-sw label:has(input:focus-visible){outline:3px solid #ffd56b;outline-offset:-3px}
+.parchment .lang-sw{border-color:#8a2418}
+.parchment .lang-sw label{color:#8a2418}
+.parchment .lang-sw label:has(input:checked){background:#8a2418;color:#fff3d6}
+.theme-btn{width:34px;height:34px;border-radius:50%;border:1.5px solid #e8b84a;background:rgba(22,4,5,.88);font-size:16px;line-height:1;cursor:pointer}
+.parchment .theme-btn{background:rgba(248,238,211,.95);border-color:#8a2418}
+.topbar{display:flex;align-items:center;justify-content:flex-end;gap:0}
+.topbar.floating{position:fixed;top:8px;right:10px;z-index:50}
+@media print{.topbar{display:none !important}}
+@media screen and (max-width:820px){
+  body:has(.topbar.floating){padding-top:54px !important}
+  .topbar.floating{position:absolute}
+}

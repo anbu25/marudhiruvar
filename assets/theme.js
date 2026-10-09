@@ -1,5 +1,5 @@
 /* Shared theme: ?theme=dark|light in the URL, else the saved choice, else dark.
-   Only pages with <body data-theme-toggle> (the landing page) show the switch; other pages just follow it. */
+   Every page gets the theme + language controls (a floating bar, hidden in print). */
 (function () {
   var KEY = 'marudhiruvar-theme', body = document.body;
   var q = new URLSearchParams(location.search).get('theme'), saved = null;
@@ -21,7 +21,6 @@
     document.documentElement.lang = lang === 'ta' ? 'ta' : 'en';
   }
   applyLang();
-  if (!body.hasAttribute('data-theme-toggle')) return;
 
   var btn = document.createElement('button');
   btn.type = 'button'; btn.className = 'theme-btn';
@@ -36,7 +35,8 @@
     apply(); label();
   };
   label();
-  var bar = document.querySelector('.topbar') || body;
+  var bar = document.querySelector('.topbar');
+  if (!bar) { bar = document.createElement('div'); bar.className = 'topbar floating'; body.appendChild(bar); }
   var sw = document.createElement('div');
   sw.className = 'lang-sw'; sw.setAttribute('role', 'radiogroup'); sw.setAttribute('aria-label', 'Language / மொழி');
   [['en', 'English'], ['ta', 'தமிழ்'], ['both', 'EN+த']].forEach(function (o) {
