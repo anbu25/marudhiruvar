@@ -66,11 +66,22 @@ page2=f'''<div class="poster-container">
    {node('p','Oct 1801','Brothers hanged at Thiruppathur','மருது சகோதரர்களின் தியாகம்')}
   </div></div>
  <div class="closing"><div class="c-en">THREE HEROES. ONE DREAM OF FREEDOM.</div><div class="c-ta">மூன்று வீரர்கள்; ஒரே சுதந்திரக் கனவு.</div></div>
+ <div class="qrbar"><img src="assets/qr.svg" alt="QR code"><div><div class="q-en">SCAN TO READ ONLINE</div><div class="q-ta">இணையத்தில் படிக்க ஸ்கேன் செய்யுங்கள்</div></div></div>
  {FOOT}
 </div>'''
+CSS_LOCAL=re.sub(r"@import url\('https://fonts.googleapis.com[^']*'\);","@import url('assets/fonts/fonts.css');",CSS)
+QRCSS='''
+    .qrbar { display: flex; justify-content: center; align-items: center; gap: 10px; margin-top: 5px; }
+    .qrbar img { width: 15mm; height: 15mm; background: #fff; padding: 1mm; border-radius: 2mm; }
+    .qrbar .q-en { font-family: 'Cinzel', serif; font-weight: 800; font-size: 10px; letter-spacing: 1px; color: #ffd56b; }
+    .qrbar .q-ta { font-family: 'Noto Serif Tamil', serif; font-weight: 700; font-size: 10.5px; color: #ffe29a; }
+    .parchment .qrbar .q-en { color: #8a2418; } .parchment .qrbar .q-ta { color: #7a1e12; }
+'''
 html=f'''<!DOCTYPE html>
 <html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Marudhiruvar - The Story, in history order (2 pages)</title>
-<style>{CSS}{EXTRA}{EXTRA3}</style></head>
+<style>{CSS_LOCAL}{EXTRA}{EXTRA3}{QRCSS}</style>
+<link rel="stylesheet" href="assets/mobile.css" media="screen and (max-width: 820px)">
+</head>
 <body>
 {page1}
 {page2}
