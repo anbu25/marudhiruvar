@@ -29,6 +29,20 @@ body.parchment{background:radial-gradient(ellipse at 50% 0%,rgba(255,244,214,.75
 .parchment .card b,.parchment h2,.parchment .foot{color:#8a2418}
 .parchment .card em,.parchment .dl{color:#3a2410}.parchment .dl a{color:#8a2418}
 .parchment .theme-btn{background:rgba(248,238,211,.95);border-color:#8a2418}
+.hint{text-align:center;font-size:14px;font-weight:600;color:#ffd56b;margin:0 0 12px}
+.card{position:relative;transition:transform .15s,background .15s,box-shadow .15s;box-shadow:0 0 0 0 rgba(232,184,74,0)}
+.card:hover{transform:translateY(-2px);box-shadow:0 0 0 3px rgba(232,184,74,.35)}
+.card:active{transform:scale(.98)}
+.card:focus-visible{outline:3px solid #ffd56b;outline-offset:3px}
+.card b u{text-decoration:none;margin-right:8px;font-size:20px}
+.go{display:flex;align-items:center;justify-content:space-between;margin-top:12px;padding:9px 8px 9px 16px;border-radius:999px;background:linear-gradient(180deg,#e8b84a,#c98a12);color:#2a0507;font-weight:700;font-size:13.5px}
+.go strong{display:flex;align-items:center;justify-content:center;width:28px;height:28px;border-radius:50%;background:#2a0507;color:#ffd56b;font-size:22px;line-height:1;padding-bottom:3px;animation:nudge 1.6s ease-in-out infinite}
+@keyframes nudge{0%,100%{transform:translateX(0)}50%{transform:translateX(4px)}}
+@media (prefers-reduced-motion:reduce){.go strong{animation:none}}
+.parchment .hint{color:#8a2418}
+.parchment .go{background:linear-gradient(180deg,#8a2418,#6a160e);color:#fff3d6}
+.parchment .go strong{background:#f8eed3;color:#8a2418}
+.parchment .card:hover{box-shadow:0 0 0 3px rgba(138,36,24,.3)}
 </style></head><body data-theme-toggle><div class="wrap">
 <h1>MARUDHIRUVAR</h1>
 <div class="ta">மருதிருவர் • வீரத்தின் அடையாளம்</div>
@@ -36,9 +50,10 @@ body.parchment{background:radial-gradient(ellipse at 50% 0%,rgba(255,244,214,.75
 <div class="trio">
 <img src="assets/images/periya_maruthu.jpeg" alt="Periya Maruthu"><img src="assets/images/velu_nachiyar.jpeg" alt="Queen Velu Nachiyar" style="object-position:25% top"><img src="assets/images/chinna_maruthu.jpeg" alt="Chinna Maruthu">
 </div>
-<a class="card" href="story.html"><b>THE STORY</b><span>The Maruthu brothers and their queen: plot, map and timeline in historical order.</span><em>மருதிருவரின் வீரக் காவியம்: கதை, வரைபடம், காலவரிசை.</em></a>
-<a class="card" href="poster.html"><b>OUR HEROES</b><span>Meet Periya Maruthu, Chinna Maruthu and Queen Velu Nachiyar.</span><em>நம் வீரர்களை அறிவோம்.</em></a>
-<a class="card" href="play-guide.html"><b>PLAY GUIDE</b><span>The story following the flow of the dance-drama, scene by scene.</span><em>நாடகத்தின் ஓட்டத்தைப் பின்தொடரும் கதை.</em></a>
+<div class="hint">👇 Tap a card to start • தொடங்க ஒரு அட்டையைத் தொடவும்</div>
+<a class="card" href="story.html"><b><u>📖</u>THE STORY</b><span>The Maruthu brothers and their queen: plot, map and timeline in historical order.</span><em>மருதிருவரின் வீரக் காவியம்: கதை, வரைபடம், காலவரிசை.</em><div class="go"><span>Tap to open • திறக்க தொடவும்</span><strong>›</strong></div></a>
+<a class="card" href="poster.html"><b><u>🛡️</u>OUR HEROES</b><span>Meet Periya Maruthu, Chinna Maruthu and Queen Velu Nachiyar.</span><em>நம் வீரர்களை அறிவோம்.</em><div class="go"><span>Tap to open • திறக்க தொடவும்</span><strong>›</strong></div></a>
+<a class="card" href="play-guide.html"><b><u>🎭</u>PLAY GUIDE</b><span>The story following the flow of the dance-drama, scene by scene.</span><em>நாடகத்தின் ஓட்டத்தைப் பின்தொடரும் கதை.</em><div class="go"><span>Tap to open • திறக்க தொடவும்</span><strong>›</strong></div></a>
 <h2>PRINT-READY PDFs (A4)</h2>
 <div class="dl">
 Story: <a href="downloads/story_a4_dark.pdf">dark</a> • <a href="downloads/story_a4_parchment.pdf">parchment</a><br>
