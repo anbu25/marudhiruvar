@@ -8,6 +8,7 @@ Bilingual (English/Tamil) intro for middle/high school students attending the st
 - `poster.html`: one-page heroes poster
 - `play-guide.html`: two pages following the dance-drama's scene flow, with "In the play" tags
 - `downloads/`: A4 PDFs of the three pages above, dark and parchment
+- `qr-sheet.html` → `downloads/qr-sheet_a4.pdf`: printable A4 sheet with the QR code (bit.ly/4dx0321); re-export after changing `assets/qr.svg`
 
 ## Files
 - `assets/images/`: character portraits
