@@ -23,5 +23,5 @@
     try { localStorage.setItem(KEY, theme); } catch (e) {}
     apply(); label();
   };
-  label(); body.appendChild(btn);
+  label(); (document.querySelector('.topbar') || body).appendChild(btn);
 })();
