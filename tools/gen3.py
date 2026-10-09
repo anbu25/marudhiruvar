@@ -21,7 +21,7 @@ EXTRA3 = '''
 '''
 def chapH(num,yr,title,en,ta):
     return f"""<div class="card chapter"><div class="medal"><div class="num">{num}</div><div class="yr">{yr}</div></div>
- <div class="ch-body"><div class="ch-title">{title}</div><div class="ch-en">{en}</div><div class="ch-ta">{ta}</div></div></div>"""
+ <div class="ch-body"><div class="ch-title"><span class="l-en">{title}</span><span class="l-tl">{TA_TITLES.get(title,title)}</span></div><div class="ch-en l-en">{en}</div><div class="ch-ta l-ta">{ta}</div></div></div>"""
 svg_main=svg_main.replace('class="map"','class="map mainmap"')
 page1=f'''<div class="poster-container p1">
  {head("MARUDHIRUVAR • TWO BROTHERS, ONE QUEEN, ONE FIGHT FOR FREEDOM","PART I • 1730–1780 • FALL AND RISE")}
@@ -40,11 +40,11 @@ page1=f'''<div class="poster-container p1">
 </div>'''
 def node(av,y,e,t):
     imgs=''.join(f'<div class="av"><img src="{IMG[k]}" alt="" style="{"object-position:25% top" if k=="v" else ""}"></div>' for k in av[:1])
-    return f'<div class="tl-node">{imgs}<div class="y">{y}</div><div class="e">{e}</div><div class="t">{t}</div></div>'
+    return f'<div class="tl-node">{imgs}<div class="y">{y}</div><div class="e l-en">{e}</div><div class="t l-ta">{t}</div></div>'
 page2=f'''<div class="poster-container">
  {head("MARUDHIRUVAR • TWO BROTHERS, ONE QUEEN, ONE FIGHT FOR FREEDOM","PART II • 1780–1801 • GUARDIANS OF A KINGDOM")}
  <div class="row2">
-  <div class="card mapcard"><div class="card-title">THE MAP OF THE STRUGGLE</div><div class="card-title-ta">போராட்டத்தின் வரைபடம்</div>
+  <div class="card mapcard"><div class="card-title l-en">THE MAP OF THE STRUGGLE</div><div class="card-title-ta l-ta">போராட்டத்தின் வரைபடம்</div><div class="card-title l-tl">போராட்டத்தின் வரைபடம்</div>
    {svg_main}
    <div class="legend"><span class="l5"><i></i>Nawab + British</span><span class="l3"><i></i>Help from Mysore</span><span class="l6"><i></i>Oomaithurai 1801</span></div>
    {svg_inset}
@@ -56,7 +56,7 @@ page2=f'''<div class="poster-container">
    {chapH(7,'Oct 1801','The Last Stand','Fighting on from the forests of Kalaiyar Koil against a far larger force, the brothers are captured. For sheltering Oomaithurai and defying the British, they are hanged at Thiruppathur with many followers. Their sacrifice still inspires Tamil Nadu.','காளையார்கோவில் காடுகளிலிருந்து மிகப் பெரிய படையை எதிர்த்துப் போராடிய சகோதரர்கள் பிடிபட்டனர். ஊமைத்துரைக்கு அடைக்கலம் அளித்து ஆங்கிலேயரை எதிர்த்ததற்காக, பலருடன் திருப்பத்தூரில் தூக்கிலிடப்பட்டனர். அவர்களின் தியாகம் இன்றும் தமிழகத்துக்கு ஊக்கமளிக்கிறது.')}
   </div>
  </div>
- <div class="card timeline"><div class="card-title">TIMELINE OF COURAGE</div>
+ <div class="card timeline"><div class="card-title"><span class="l-en">TIMELINE OF COURAGE</span><span class="l-tl">வீரத்தின் காலவரிசை</span></div>
   <div class="tl">
    {node('v','1730','Velu Nachiyar born; later weds the King','வேலு நாச்சியார் பிறப்பு; மணம்')}
    {node('v','1772','King killed at Kalaiyar Koil; queen escapes','காளையார்கோவில் போர்')}
@@ -67,8 +67,8 @@ page2=f'''<div class="poster-container">
    {node('c','1801','Oomaithurai’s refuge; Proclamation','ஊமைத்துரை; பிரகடனம்')}
    {node('p','Oct 1801','Brothers hanged at Thiruppathur','மருது சகோதரர்களின் தியாகம்')}
   </div></div>
- <div class="closing"><div class="c-en">TWO BROTHERS. ONE QUEEN. ONE DREAM OF FREEDOM.</div><div class="c-ta">இரு சகோதரர்கள்; ஒரு ராணி; ஒரே சுதந்திரக் கனவு.</div></div>
- <div class="qrbar"><img src="assets/qr.svg" alt="QR code"><div><div class="q-en">SCAN TO READ ONLINE</div><div class="q-ta">இணையத்தில் படிக்க ஸ்கேன் செய்யுங்கள்</div></div></div>
+ <div class="closing"><div class="c-en l-en">TWO BROTHERS. ONE QUEEN. ONE DREAM OF FREEDOM.</div><div class="c-ta l-ta">இரு சகோதரர்கள்; ஒரு ராணி; ஒரே சுதந்திரக் கனவு.</div></div>
+ <div class="qrbar"><img src="assets/qr.svg" alt="QR code"><div><div class="q-en l-en">SCAN TO READ ONLINE</div><div class="q-ta l-ta">இணையத்தில் படிக்க ஸ்கேன் செய்யுங்கள்</div></div></div>
  {FOOT}
 </div>'''
 CSS_LOCAL=re.sub(r"@import url\('https://fonts.googleapis.com[^']*'\);","@import url('assets/fonts/fonts.css');",CSS)
@@ -92,6 +92,7 @@ QRCSS='''
 html=f'''<!DOCTYPE html>
 <html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Marudhiruvar - The Story, in history order (2 pages)</title>
 <style>{CSS_LOCAL}{EXTRA}{EXTRA3}{QRCSS}</style>
+<link rel="stylesheet" href="assets/lang.css">
 <link rel="stylesheet" href="assets/mobile.css" media="screen and (max-width: 820px)">
 </head>
 <body>

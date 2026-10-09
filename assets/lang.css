@@ -1,0 +1,13 @@
+/* Language modes (set on <body> by assets/theme.js): lang-en, lang-ta, or lang-both (default).
+   .l-en  English text, hidden in Tamil mode
+   .l-ta  Tamil text, hidden in English mode
+   .l-tl  Tamil replacement for English-only text, shown only in Tamil mode */
+.l-tl { display: none; }
+body.lang-en .l-ta { display: none !important; }
+body.lang-ta .l-en { display: none !important; }
+body.lang-ta .l-tl { display: inline !important; }
+body.lang-en .l-tl { display: none !important; }
+.icon.l-tl{display:none}
+body.lang-ta .icon.l-tl{display:inline-flex !important}
+body.lang-ta .bullet-desc-ta{font-size:13px}
+body.lang-ta .lt-hide{display:none !important}

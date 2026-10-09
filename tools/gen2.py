@@ -111,17 +111,19 @@ def roles(items):
         out+=f'<div class="role"><span class="tag"><img src="{IMG[k]}" alt="" style="{pos}"></span><div><b>{nm}:</b> {en}<div class="rta">{ta}</div></div></div>'
     return '<div class="roles">'+out+'</div>'
 def chap(num,yr,title,en,ta,play,scene):
-    rl=f'<div class="play">🎭 In the play: <span>{play}</span></div>'
+    rl=f'<div class="play l-en">🎭 In the play: <span>{play}</span></div>'
     who=''
     sc=f'<img class="scene" src="assets/scenes/{scene}.jpg" alt="" onerror="this.remove()">'
     return f'''<div class="card chapter"><div class="medal"><div class="num">{num}</div><div class="yr">{yr}</div></div>
- <div class="ch-body"><div class="ch-title">{title}</div><div class="ch-en">{en}</div><div class="ch-ta">{ta}</div>{tags(who)}{rl}</div>{sc}</div>'''
+ <div class="ch-body"><div class="ch-title"><span class="l-en">{title}</span><span class="l-tl">{TA_TITLES.get(title,title)}</span></div><div class="ch-en l-en">{en}</div><div class="ch-ta l-ta">{ta}</div>{tags(who)}{rl}</div>{sc}</div>'''
+TA_TITLES={'The Heroes Rise': 'வீரர்களின் எழுச்சி', 'Betrayal at Kalaiyar Koil': 'காளையார்கோவில் துரோகம்', 'The Heroes Unite': 'வீரர்கள் இணைகின்றனர்', 'An Ally in Exile': 'தலைமறைவில் ஒரு நண்பர்', 'Exile and an Ally': 'தலைமறைவும் ஒரு நண்பரும்', 'Sivaganga Is Won Back': 'சிவகங்கை மீட்கப்பட்டது', 'Guardians of Sivaganga': 'சிவகங்கையின் காவலர்கள்', 'Refuge and Rebellion': 'அடைக்கலமும் கிளர்ச்சியும்', 'The Last Stand': 'இறுதிப் போர்'}
+PART_TA={'PART I • 1730–1780 • FALL AND RISE': 'பகுதி I • 1730–1780 • வீழ்ச்சியும் எழுச்சியும்', 'PART II • 1780–1801 • GUARDIANS OF A KINGDOM': 'பகுதி II • 1780–1801 • அரசின் காவலர்கள்'}
 def trio(k,name,ta,role,rta,pos=''):
-    return f'''<div class="card"><div class="pic"><img src="{IMG[k]}" alt="{name}" style="{pos}"></div><div class="nm">{name}</div><div class="nt">{ta}</div><div class="rl">{role}</div><div class="rt">{rta}</div></div>'''
+    return f'''<div class="card"><div class="pic"><img src="{IMG[k]}" alt="{name}" style="{pos}"></div><div class="nm l-en">{name}</div><div class="nt l-ta">{ta}</div><div class="rl l-en">{role}</div><div class="rt l-ta">{rta}</div></div>'''
 def head(sub_en,part):
-    return f'''<div class="header"><div class="title-banner"><div class="title-main">THE STORY</div></div>
- <div class="title-sub-ta">மருதிருவரின் வீரக் காவியம்</div><div class="title-sub-en">{sub_en}</div><div class="part">{part}</div><div class="divider"></div></div>'''
-FOOT='<div class="footer">HONORING THE VALOR OF SIVAGANGA • TAMIL NADU HISTORY</div>'
+    return f'''<div class="header"><div class="title-banner"><div class="title-main"><span class="l-en">THE STORY</span><span class="l-tl">கதை</span></div></div>
+ <div class="title-sub-ta l-ta">மருதிருவரின் வீரக் காவியம்</div><div class="title-sub-en l-en">{sub_en}</div><div class="part"><span class="l-en">{part}</span><span class="l-tl">{PART_TA.get(part,part)}</span></div><div class="divider"></div></div>'''
+FOOT='<div class="footer"><span class="l-en">HONORING THE VALOR OF SIVAGANGA • TAMIL NADU HISTORY</span><span class="l-tl">சிவகங்கையின் வீரத்தைப் போற்றுவோம் • தமிழக வரலாறு</span></div>'
 
 page1=f'''<div class="poster-container p1">
  {head("MARUDHIRUVAR • TWO BROTHERS, ONE QUEEN, ONE FIGHT FOR FREEDOM","PART I • 1730–1780 • FALL AND RISE")}
@@ -142,11 +144,11 @@ page1=f'''<div class="poster-container p1">
 
 def node(av,y,e,t):
     imgs=''.join(f'<div class="av"><img src="{IMG[k]}" alt="" style="{"object-position:25% top" if k=="v" else ""}"></div>' for k in av[:1])
-    return f'<div class="tl-node">{imgs}<div class="y">{y}</div><div class="e">{e}</div><div class="t">{t}</div></div>'
+    return f'<div class="tl-node">{imgs}<div class="y">{y}</div><div class="e l-en">{e}</div><div class="t l-ta">{t}</div></div>'
 page2=f'''<div class="poster-container">
  {head("MARUDHIRUVAR • TWO BROTHERS, ONE QUEEN, ONE FIGHT FOR FREEDOM","PART II • 1780–1801 • GUARDIANS OF A KINGDOM")}
  <div class="row2">
-  <div class="card mapcard"><div class="card-title">THE MAP OF THE STRUGGLE</div><div class="card-title-ta">போராட்டத்தின் வரைபடம்</div>
+  <div class="card mapcard"><div class="card-title l-en">THE MAP OF THE STRUGGLE</div><div class="card-title-ta l-ta">போராட்டத்தின் வரைபடம்</div><div class="card-title l-tl">போராட்டத்தின் வரைபடம்</div>
    {svg}
    <div class="legend"><span class="l1"><i></i>Escape 1772</span><span class="l2"><i></i>Return 1780</span><span class="l3"><i></i>Help from Mysore</span><span class="l4"><i></i>Southern alliance</span><span class="l5"><i></i>Nawab + British advance</span><span class="l6"><i></i>Oomaithurai’s flight 1801</span></div>
    <div class="note">Tamil Nadu, simplified outline. Distances approximate.</div>
@@ -163,7 +165,7 @@ page2=f'''<div class="poster-container">
    {chap(8,'Oct 1801','The Last Stand','Fighting on from the forests of Kalaiyar Koil against a far larger force, the brothers are captured. For sheltering Oomaithurai and defying the British, they are hanged at Thiruppathur with many followers. Their sacrifice still inspires Tamil Nadu.','காளையார்கோவில் காடுகளிலிருந்து மிகப் பெரிய படையை எதிர்த்துப் போராடிய சகோதரர்கள் பிடிபட்டனர். ஊமைத்துரைக்கு அடைக்கலம் அளித்து ஆங்கிலேயரை எதிர்த்ததற்காக, பலருடன் திருப்பத்தூரில் தூக்கிலிடப்பட்டனர். அவர்களின் தியாகம் இன்றும் தமிழகத்துக்கு ஊக்கமளிக்கிறது.','Hanging of Marudhu Iruvar • “Veera Velanja Mannil” • Mangalam','ch8')}
   </div>
  </div>
- <div class="card timeline"><div class="card-title">TIMELINE OF COURAGE</div>
+ <div class="card timeline"><div class="card-title"><span class="l-en">TIMELINE OF COURAGE</span><span class="l-tl">வீரத்தின் காலவரிசை</span></div>
   <div class="tl">
    {node('v','1730','Velu Nachiyar is born','வேலு நாச்சியார் பிறப்பு')}
    {node('v','1772','King killed at Kalaiyar Koil; queen escapes','காளையார்கோவில் போர்')}
@@ -172,7 +174,7 @@ page2=f'''<div class="poster-container">
    {node('c','1801','Oomaithurai finds refuge; Jambudvipa Proclamation','ஊமைத்துரைக்கு அடைக்கலம்; பிரகடனம்')}
    {node('p','1801','Oct: Maruthu brothers hanged at Thiruppathur','மருது சகோதரர்களின் தியாகம்')}
   </div></div>
- <div class="closing"><div class="c-en">TWO BROTHERS. ONE QUEEN. ONE DREAM OF FREEDOM.</div><div class="c-ta">இரு சகோதரர்கள்; ஒரு ராணி; ஒரே சுதந்திரக் கனவு.</div></div>
+ <div class="closing"><div class="c-en l-en">TWO BROTHERS. ONE QUEEN. ONE DREAM OF FREEDOM.</div><div class="c-ta l-ta">இரு சகோதரர்கள்; ஒரு ராணி; ஒரே சுதந்திரக் கனவு.</div></div>
  {FOOT}
 </div>'''
 CSS_LOCAL=re.sub(r"@import url\('https://fonts.googleapis.com[^']*'\);","@import url('assets/fonts/fonts.css');",CSS)
@@ -180,6 +182,7 @@ PRINTFIX=open(os.path.join(HERE,'printfix.css'),encoding='utf-8').read()
 html=f'''<!DOCTYPE html>
 <html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Marudhiruvar - Play Guide (2 pages)</title>
 <style>{CSS_LOCAL}{EXTRA}{PRINTFIX}</style>
+<link rel="stylesheet" href="assets/lang.css">
 <link rel="stylesheet" href="assets/mobile.css" media="screen and (max-width: 820px)">
 </head>
 <body>
