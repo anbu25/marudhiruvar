@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Our Heroes - The Story</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@700;900&family=Noto+Sans:wght@400;500;600;700&family=Noto+Sans+Tamil:wght@500;600;700&family=Noto+Serif+Tamil:wght@600;700&display=swap');
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --maroon-deep: #3a0508; --maroon: #7a0f14; --crimson: #a3141a;
+      --gold: #e8b84a; --gold-light: #ffe29a; --gold-dark: #9a6a12;
+    }
+    body {
+      background-color: #060101; display: flex; justify-content: center; padding: 24px 0;
+      font-family: 'Noto Sans', 'Noto Sans Tamil', sans-serif; color: #fff8e6;
+      -webkit-print-color-adjust: exact; print-color-adjust: exact;
+    }
+    @page { size: A4 portrait; margin: 0; }
+    @media print {
+      body { padding: 0; background: none; display: block; }
+      .poster-container { box-shadow: none; }
+      /* PDF export rasterizes shadows/filters as black boxes behind text */
+      .title-main { filter: none; }
+      .parchment .card { box-shadow: inset 0 0 0 3px #f8eed3, inset 0 0 0 4px rgba(201, 138, 18, 0.55); }
+      .parchment .title-banner { box-shadow: inset 0 0 0 4px var(--maroon), inset 0 0 0 5px rgba(232, 184, 74, 0.6); }
+      .parchment .pic { box-shadow: 0 0 0 2px #f8eed3, 0 0 0 3px #c98a12; }
+      body:not(.parchment) * { text-shadow: none !important; }
+      body:not(.parchment) .card, body:not(.parchment) .medal, body:not(.parchment) .pic { box-shadow: none; }
+      body:not(.parchment) .title-banner { box-shadow: inset 0 0 0 4px var(--maroon), inset 0 0 0 5px rgba(232, 184, 74, 0.6); }
+    }
+    .poster-container {
+      width: 210mm; height: 297mm; overflow: hidden; display: flex; flex-direction: column;
+      background: radial-gradient(ellipse at 50% 0%, #4a0a0e 0%, rgba(74,10,14,0) 55%), linear-gradient(180deg, #160405 0%, #0c0203 100%);
+      padding: 10mm 8.5mm 9mm; position: relative; box-shadow: 0 0 40px rgba(0,0,0,0.95);
+    }
+    .poster-container::before, .poster-container::after { content: ""; position: absolute; pointer-events: none; }
+    .poster-container::before {
+      inset: 4mm; border: 5px solid transparent; outline: 1px solid rgba(232,184,74,0.75); outline-offset: 3px;
+      border-image: linear-gradient(135deg, #fff1bf, #e8b84a 35%, #9a6a12 60%, #f6d77a) 1;
+    }
+    .poster-container::after { inset: 6.5mm; border: 1.5px solid rgba(232,184,74,0.9); }
+
+    .header { text-align: center; margin-bottom: 8px; }
+    .title-banner {
+      display: inline-block; padding: 4px 34px;
+      background: linear-gradient(180deg, var(--crimson) 0%, var(--maroon) 55%, var(--maroon-deep) 100%);
+      border: 2px solid var(--gold); border-radius: 14px / 22px;
+      box-shadow: inset 0 0 0 4px var(--maroon), inset 0 0 0 5px rgba(232,184,74,0.6), 0 6px 18px rgba(0,0,0,0.6);
+      margin-bottom: 6px;
+    }
+    .title-main {
+      font-family: 'Cinzel', serif; font-weight: 900; font-size: 32px; letter-spacing: 5px;
+      background: linear-gradient(180deg, #fff6d0 0%, #ffd56b 45%, #e8b84a 70%, #fff1bf 100%);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      filter: drop-shadow(0 2px 2px rgba(0,0,0,0.7));
+    }
+    .title-sub-ta { font-family: 'Noto Serif Tamil', serif; font-size: 16px; color: #ffe29a; font-weight: 700; text-shadow: 0 1px 2px rgba(0,0,0,0.8); }
+    .title-sub-en { font-family: 'Cinzel', serif; font-size: 10px; color: #fff0c2; letter-spacing: 2.5px; font-weight: 600; margin-top: 2px; }
+    .divider { width: 200px; height: 2px; background: linear-gradient(90deg, transparent, #dca538, transparent); margin: 7px auto 0; }
+
+    .main { display: flex; gap: 10px; flex: 1; min-height: 0; }
+    .main > * { min-height: 0; }
+    .chapters { flex: 1.7; display: flex; flex-direction: column; gap: 7px; min-width: 0; }
+    .side { flex: 1; display: flex; flex-direction: column; gap: 7px; min-width: 0; }
+
+    .card {
+      position: relative; background: linear-gradient(180deg, #1f0709 0%, #110304 100%);
+      border: 2px solid var(--gold); border-radius: 14px; padding: 6px 10px;
+      box-shadow: 0 0 14px rgba(232,184,74,0.25), 0 8px 20px rgba(0,0,0,0.7);
+    }
+    .chapter { display: flex; gap: 9px; align-items: center; flex: 1; }
+    .medal {
+      flex-shrink: 0; width: 42px; text-align: center;
+    }
+    .medal .num {
+      width: 30px; height: 30px; margin: 0 auto 3px; border-radius: 50%;
+      border: 2px solid var(--gold); background: radial-gradient(circle at 35% 30%, #6a141a 0%, #2a0507 100%);
+      font-family: 'Cinzel', serif; font-weight: 900; font-size: 15px; line-height: 26px; color: #ffd56b;
+    }
+    .medal .yr { font-family: 'Cinzel', serif; font-weight: 700; font-size: 10px; color: #ffd56b; letter-spacing: 0.5px; }
+    .ch-body { flex: 1; min-width: 0; }
+    .ch-title { font-family: 'Cinzel', serif; font-weight: 800; font-size: 13.5px; letter-spacing: 0.5px; color: #ffd56b; margin-bottom: 2px; }
+    .ch-en { font-size: 11px; line-height: 1.34; color: #fff8e6; font-weight: 500; }
+    .ch-ta { font-family: 'Noto Sans Tamil', sans-serif; font-size: 10.5px; line-height: 1.34; color: #f3e2c0; margin-top: 2px; }
+    .pic {
+      flex-shrink: 0; width: 58px; height: 74px; border: 2px solid var(--gold); border-radius: 10px; overflow: hidden;
+      box-shadow: 0 0 10px rgba(232,184,74,0.3);
+    }
+    .pic img { width: 100%; height: 100%; object-fit: cover; object-position: top center; display: block; }
+
+    .card-title { font-family: 'Cinzel', serif; font-weight: 800; font-size: 12px; letter-spacing: 1.5px; color: #ffd56b; text-align: center; }
+    .card-title-ta { font-family: 'Noto Serif Tamil', serif; font-weight: 700; font-size: 11.5px; color: #ffe29a; text-align: center; margin-bottom: 4px; }
+
+    .mapcard { flex: 3.2; display: flex; flex-direction: column; }
+    .mapcard svg { flex: 1; min-height: 0; width: 100%; }
+    .land { fill: #3a1a14; stroke: var(--gold); stroke-width: 1.4; stroke-linejoin: round; }
+    .sea { fill: rgba(255,226,154,0.55); font-family: 'Cinzel', serif; font-size: 9px; letter-spacing: 1.5px; font-style: italic; }
+    .mdot { fill: #ffe29a; stroke: #3a0508; stroke-width: 1; }
+    .mdot.cap { fill: #ff5a3c; r: 5; stroke: #ffe29a; stroke-width: 1.5; }
+    .mdot.star { fill: #7fd0ff; }
+    .mlabel { fill: #fff8e6; font-family: 'Noto Sans', sans-serif; font-weight: 600; font-size: 10px; }
+    .mlabel.cap { font-weight: 800; fill: #ffd56b; font-size: 11px; }
+    .mlabel.hy { fill: #7fd0ff; } .mlabel.small { font-size: 8.5px; font-weight: 500; }
+    .route { fill: none; stroke-width: 2.4; stroke-linecap: round; }
+    .route.flee { stroke: #ff7a5c; stroke-dasharray: 5 4; }
+    .route.back { stroke: #ffd56b; }
+    .route.hyder { stroke: #7fd0ff; stroke-dasharray: 2 4; }
+    .arrfill { fill: #ff7a5c; } .arrfill2 { fill: #ffd56b; }
+    .legend { display: flex; flex-wrap: wrap; gap: 3px 9px; font-size: 9.5px; margin-top: 3px; color: #f3e2c0; justify-content: center; }
+    .legend i { display: inline-block; width: 16px; height: 0; border-top: 2.5px solid; vertical-align: middle; margin-right: 3px; }
+    .legend .l1 i { border-color: #ff7a5c; border-top-style: dashed; } .legend .l2 i { border-color: #ffd56b; } .legend .l3 i { border-color: #7fd0ff; border-top-style: dotted; }
+    .note { font-size: 8.5px; text-align: center; opacity: 0.7; margin-top: 2px; font-style: italic; }
+
+    .quote { flex: 1; display: flex; flex-direction: column; justify-content: center; text-align: center; }
+    .quote .q-en { font-family: 'Cinzel', serif; font-weight: 700; font-size: 12.5px; line-height: 1.4; color: #ffd56b; }
+    .quote .q-ta { font-family: 'Noto Serif Tamil', serif; font-weight: 600; font-size: 11.5px; line-height: 1.4; color: #ffe29a; margin-top: 4px; }
+
+    /* Timeline strip */
+    .timeline { margin-top: 8px; padding: 7px 10px 8px; }
+    .tl { position: relative; display: flex; justify-content: space-between; margin-top: 6px; }
+    .tl::before { content: ""; position: absolute; left: 4%; right: 4%; top: 7px; height: 3px; background: linear-gradient(90deg, #9a6a12, #ffd56b, #9a6a12); }
+    .tl-node { position: relative; width: 16.6%; text-align: center; }
+    .tl-node b { display: block; width: 17px; height: 17px; margin: 0 auto 4px; border-radius: 50%; background: radial-gradient(circle at 35% 30%, #ffe29a, #c98a12); border: 2px solid #3a0508; position: relative; z-index: 1; }
+    .tl-node .y { font-family: 'Cinzel', serif; font-weight: 800; font-size: 12px; color: #ffd56b; }
+    .tl-node .e { font-size: 9.5px; line-height: 1.25; color: #fff8e6; font-weight: 500; margin-top: 1px; }
+    .tl-node .t { font-family: 'Noto Sans Tamil', sans-serif; font-size: 9px; line-height: 1.25; color: #f3e2c0; margin-top: 1px; }
+
+    .footer { text-align: center; font-family: 'Cinzel', serif; font-size: 10px; color: #ffd56b; letter-spacing: 2.5px; margin-top: 7px; }
+
+    /* ---------- Parchment theme ---------- */
+    body.parchment { background-color: #cdb98a; color: #2b1608; }
+    .parchment .poster-container { --gold: #a8741a; background: radial-gradient(ellipse at 50% 0%, rgba(255,244,214,0.75) 0%, rgba(255,244,214,0) 60%), #ead8ab; }
+    .parchment .poster-container::before { border-image: linear-gradient(135deg, #c98a12, #8a2418 50%, #c98a12) 1; outline-color: rgba(138,36,24,0.8); }
+    .parchment .poster-container::after { border-color: rgba(138,36,24,0.85); }
+    .parchment .title-banner { border-color: #e8b84a; }
+    .parchment .title-sub-ta { color: #7a1e12; text-shadow: none; }
+    .parchment .title-sub-en { color: #5e140c; }
+    .parchment .divider { background: linear-gradient(90deg, transparent, #8a2418, transparent); }
+    .parchment .card { background: #f8eed3; border-color: #8a2418; box-shadow: 0 2px 6px rgba(94,20,12,0.25), inset 0 0 0 3px #f8eed3, inset 0 0 0 4px rgba(201,138,18,0.55); }
+    .parchment .medal .num { background: #f8eed3; border-color: #8a2418; color: #8a2418; }
+    .parchment .medal .yr, .parchment .ch-title, .parchment .card-title, .parchment .tl-node .y { color: #8a2418; }
+    .parchment .card-title-ta { color: #7a1e12; }
+    .parchment .ch-en, .parchment .tl-node .e { color: #2b1608; }
+    .parchment .ch-ta, .parchment .tl-node .t, .parchment .legend { color: #3a2410; }
+    .parchment .pic { border-color: #8a2418; box-shadow: 0 0 0 2px #f8eed3, 0 0 0 3px #c98a12; }
+    .parchment .land { fill: #e3cf9c; stroke: #8a2418; }
+    .parchment .sea { fill: rgba(94,20,12,0.6); }
+    .parchment .mdot { fill: #8a2418; stroke: #f8eed3; } .parchment .mdot.cap { fill: #c01f12; stroke: #f8eed3; } .parchment .mdot.star { fill: #1d5f8a; }
+    .parchment .mlabel { fill: #2b1608; } .parchment .mlabel.cap { fill: #8a2418; } .parchment .mlabel.hy { fill: #1d5f8a; }
+    .parchment .route.flee, .parchment .arrfill { stroke: #c01f12; fill: none; } .parchment .arrfill { fill: #c01f12; }
+    .parchment .route.back { stroke: #8a2418; } .parchment .arrfill2 { fill: #8a2418; }
+    .parchment .route.hyder { stroke: #1d5f8a; }
+    .parchment .quote .q-en { color: #8a2418; } .parchment .quote .q-ta { color: #7a1e12; }
+    .parchment .tl::before { background: linear-gradient(90deg, #c98a12, #8a2418, #c98a12); }
+    .parchment .tl-node b { background: radial-gradient(circle at 35% 30%, #fff1bf, #c98a12); border-color: #8a2418; }
+    .parchment .footer { color: #7a1e12; }
+  </style>
+</head>
+<body>
+  <div class="poster-container">
+    <div class="header">
+      <div class="title-banner"><div class="title-main">THE STORY</div></div>
+      <div class="title-sub-ta">ஒரு ராணியின் மீட்சி • மருது சகோதரர்களின் தியாகம்</div>
+      <div class="title-sub-en">A QUEEN'S COMEBACK • THE MARUTHU BROTHERS' SACRIFICE</div>
+      <div class="divider"></div>
+    </div>
+
+    <div class="main">
+      <div class="chapters">
+
+        <div class="card chapter">
+          <div class="medal"><div class="num">1</div><div class="yr">1746</div></div>
+          <div class="ch-body">
+            <div class="ch-title">A Warrior Princess Becomes Queen</div>
+            <div class="ch-en">Born a princess of Ramnad in 1730, Velu Nachiyar trained in Silambam, archery and horse riding. She married Muthu Vaduganathar, King of Sivaganga.</div>
+            <div class="ch-ta">1730-இல் இராமநாதபுர இளவரசியாகப் பிறந்த வேலு நாச்சியார், சிலம்பம், வில், குதிரையேற்றத்தில் தேர்ந்தவர். சிவகங்கை மன்னர் முத்து வடுகநாதரை மணந்தார்.</div>
+          </div>
+          <div class="pic"><img src="assets/images/velu_nachiyar.jpeg" alt="Velu Nachiyar" style="object-position: 25% top"></div>
+        </div>
+
+        <div class="card chapter">
+          <div class="medal"><div class="num">2</div><div class="yr">1772</div></div>
+          <div class="ch-body">
+            <div class="ch-title">Betrayal at Kalaiyar Koil</div>
+            <div class="ch-en">The British East India Company allied with the Nawab of Arcot and attacked Sivaganga. King Muthu Vaduganathar was killed in battle. The queen escaped with her daughter, Vellachi.</div>
+            <div class="ch-ta">ஆங்கிலேய கிழக்கிந்தியக் கம்பெனி, ஆர்க்காடு நவாபுடன் கூட்டுச் சேர்ந்து சிவகங்கையைத் தாக்கியது. போரில் மன்னர் வீரமரணம் அடைந்தார். ராணி மகள் வெள்ளச்சியுடன் தப்பினார்.</div>
+          </div>
+        </div>
+
+        <div class="card chapter">
+          <div class="medal"><div class="num">3</div><div class="yr">1772–80</div></div>
+          <div class="ch-body">
+            <div class="ch-title">Eight Years in Hiding</div>
+            <div class="ch-en">Sheltered at Virupachi under the protection of Hyder Ali of Mysore, the queen built an army and an alliance. The loyal Maruthu brothers stood by her and rallied supporters in Sivaganga.</div>
+            <div class="ch-ta">மைசூர் ஹைதர் அலியின் பாதுகாப்பில் விருப்பாட்சியில் தங்கிய ராணி, படையையும் கூட்டணியையும் உருவாக்கினார். மருது சகோதரர்கள் உறுதுணையாக நின்றனர்.</div>
+          </div>
+          <div class="pic"><img src="assets/images/periya_maruthu.jpeg" alt="Maruthu brothers"></div>
+        </div>
+
+        <div class="card chapter">
+          <div class="medal"><div class="num">4</div><div class="yr">1780</div></div>
+          <div class="ch-body">
+            <div class="ch-title">The Women's Army Strikes</div>
+            <div class="ch-en">Led by the queen, with Kuyili's Udaiyaal Padai, her forces attacked. Legend says Kuyili sacrificed her life to destroy the British weapons store. Sivaganga was won back!</div>
+            <div class="ch-ta">ராணியின் தலைமையில், குயிலியின் 'உடையாள் படை' தாக்கியது. ஆங்கிலேயர் ஆயுதக் கிடங்கை அழிக்க குயிலி உயிர்த்தியாகம் செய்ததாகக் கூறப்படுகிறது. சிவகங்கை மீட்கப்பட்டது!</div>
+          </div>
+        </div>
+
+        <div class="card chapter">
+          <div class="medal"><div class="num">5</div><div class="yr">1780–1801</div></div>
+          <div class="ch-body">
+            <div class="ch-title">A Kingdom Defended</div>
+            <div class="ch-en">The queen was crowned again, with the Maruthu brothers as her trusted ministers and commanders. In 1801 they rose against the British once more and were hanged for freedom.</div>
+            <div class="ch-ta">ராணி மீண்டும் முடிசூடினார்; மருது சகோதரர்கள் அமைச்சர்களாகவும் தளபதிகளாகவும் துணைநின்றனர். 1801-இல் மீண்டும் ஆங்கிலேயரை எதிர்த்து, தூக்கிலிடப்பட்டு உயிர்நீத்தனர்.</div>
+          </div>
+          <div class="pic"><img src="assets/images/chinna_maruthu.jpeg" alt="Chinna Maruthu"></div>
+        </div>
+
+      </div>
+
+      <div class="side">
+        <div class="card mapcard">
+          <div class="card-title">THE ROUTE OF THE QUEEN</div>
+          <div class="card-title-ta">ராணியின் பயணம்</div>
+          {{MAP}}
+          <div class="legend">
+            <span class="l1"><i></i>Escape 1772</span><span class="l2"><i></i>Return 1780</span><span class="l3"><i></i>Help from Mysore</span>
+          </div>
+          <div class="note">Schematic map, not to scale</div>
+        </div>
+        <div class="card quote">
+          <div class="q-en">“Not one queen, but a whole army of courage.”</div>
+          <div class="q-ta">“ஒரு ராணி அல்ல; துணிச்சலின் முழுப் படை.”</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card timeline">
+      <div class="card-title">TIMELINE OF COURAGE</div>
+      <div class="tl">
+        <div class="tl-node"><b></b><div class="y">1730</div><div class="e">Velu Nachiyar is born</div><div class="t">வேலு நாச்சியார் பிறப்பு</div></div>
+        <div class="tl-node"><b></b><div class="y">1746</div><div class="e">Marries King of Sivaganga</div><div class="t">சிவகங்கை மன்னருடன் திருமணம்</div></div>
+        <div class="tl-node"><b></b><div class="y">1772</div><div class="e">Kalaiyar Koil: king killed, queen flees</div><div class="t">காளையார்கோவில் போர்</div></div>
+        <div class="tl-node"><b></b><div class="y">1780</div><div class="e">Sivaganga won back</div><div class="t">சிவகங்கை மீட்பு</div></div>
+        <div class="tl-node"><b></b><div class="y">1796</div><div class="e">Queen Velu Nachiyar passes away</div><div class="t">ராணி மறைவு</div></div>
+        <div class="tl-node"><b></b><div class="y">1801</div><div class="e">Maruthu brothers' last stand</div><div class="t">மருது சகோதரர்களின் தியாகம்</div></div>
+      </div>
+    </div>
+
+    <div class="footer">HONORING THE VALOR OF SIVAGANGA • TAMIL NADU HISTORY</div>
+  </div>
+  <script>
+    if (new URLSearchParams(location.search).get('theme') === 'parchment') document.body.classList.add('parchment');
+  </script>
+</body>
+</html>
