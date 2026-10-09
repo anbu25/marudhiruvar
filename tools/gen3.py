@@ -1,7 +1,9 @@
 # -*- coding: utf-8 -*-
-src=open('/tmp/gen2.py',encoding='utf-8').read()
+import os
+HERE=os.path.dirname(os.path.abspath(__file__)); ROOT=os.path.dirname(HERE)
+src=open(os.path.join(HERE,'gen2.py'),encoding='utf-8').read()
 exec(compile(src.split("page1=f'''")[0],'g2pre','exec'))
-exec(compile(open('/tmp/mapgen.py',encoding='utf-8').read(),'mapgen','exec'))
+exec(compile(open(os.path.join(HERE,'mapgen.py'),encoding='utf-8').read(),'mapgen','exec'))
 svg_main, svg_inset = main, inset
 EXTRA3 = '''
     .row2 .mapcard { flex: 1.1; display: flex; flex-direction: column; }
@@ -96,4 +98,4 @@ html=f'''<!DOCTYPE html>
 {page2}
 <script>if (new URLSearchParams(location.search).get('theme') === 'parchment') document.body.classList.add('parchment');</script>
 </body></html>'''
-open('/Users/a.venkatachalam/PersonalProjects/Maruthiruvar/story.html','w',encoding='utf-8').write(html)
+open(os.path.join(ROOT,'story.html'),'w',encoding='utf-8').write(html)

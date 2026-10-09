@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 import json, math
-rings=json.load(open('/tmp/tnrings.json'))
+rings=json.load(open(os.path.join(HERE,'tnrings.json')))
 PL={'sivaganga':(9.85,78.48),'kalaiyar':(9.85,78.63),'virupachi':(10.30,77.95),'thiruppathur':(10.12,78.52),'madurai':(9.92,78.12),
     'trichy':(10.80,78.69),'panchal':(8.97,77.93),'mysore':(12.30,76.65),'chennai':(13.08,80.27),'arcot':(12.91,79.33),'palay':(8.72,77.74),'ramnad':(9.37,78.83)}
 def make_proj(lon0,lat1,K):

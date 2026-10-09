@@ -1,5 +1,6 @@
-import json,re,math
-m=json.load(open('/tmp/tnpath.json')); W,H=m['W'],m['H']
+import json,re,math,os
+HERE=os.path.dirname(os.path.abspath(__file__)); ROOT=os.path.dirname(HERE)
+m=json.load(open(os.path.join(HERE,'tnpath.json'))); W,H=m['W'],m['H']
 LON0,LAT1,K=76.1,13.7,60; cx=math.cos(math.radians(10.8))
 def P(lat,lon): return ((lon-LON0)*cx*K,(LAT1-lat)*K)
 pl={'ramnad':(9.37,78.83),'sivaganga':(9.85,78.48),'kalaiyar':(9.85,78.63),'virupachi':(10.30,77.95),'thiruppathur':(10.12,78.52),
@@ -37,7 +38,7 @@ svg=f'''<svg viewBox="-14 0 {W+14:.0f} {H:.0f}" xmlns="http://www.w3.org/2000/sv
  {dot('palay','Palayamkottai',8,-2,'')}
 </svg>'''
 
-CSS=re.search(r'<style>(.*?)</style>',open('/tmp/plot_tpl.html',encoding='utf-8').read(),re.S).group(1)
+CSS=re.search(r'<style>(.*?)</style>',open(os.path.join(HERE,'plot_tpl.html'),encoding='utf-8').read(),re.S).group(1)
 # drop single-page specific bits we override
 EXTRA='''
     body { flex-direction: column; justify-content: flex-start; align-items: center; gap: 24px; }
@@ -173,12 +174,16 @@ page2=f'''<div class="poster-container">
  <div class="closing"><div class="c-en">THREE HEROES. ONE DREAM OF FREEDOM.</div><div class="c-ta">மூன்று வீரர்கள்; ஒரே சுதந்திரக் கனவு.</div></div>
  {FOOT}
 </div>'''
+CSS_LOCAL=re.sub(r"@import url\('https://fonts.googleapis.com[^']*'\);","@import url('assets/fonts/fonts.css');",CSS)
+PRINTFIX=open(os.path.join(HERE,'printfix.css'),encoding='utf-8').read()
 html=f'''<!DOCTYPE html>
-<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Marudhiruvar - The Story (2 pages)</title>
-<style>{CSS}{EXTRA}</style></head>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Marudhiruvar - Play Guide (2 pages)</title>
+<style>{CSS_LOCAL}{EXTRA}{PRINTFIX}</style>
+<link rel="stylesheet" href="assets/mobile.css" media="screen and (max-width: 820px)">
+</head>
 <body>
 {page1}
 {page2}
 <script>if (new URLSearchParams(location.search).get('theme') === 'parchment') document.body.classList.add('parchment');</script>
 </body></html>'''
-open('/Users/a.venkatachalam/PersonalProjects/Maruthiruvar/plot2.html','w',encoding='utf-8').write(html)
+open(os.path.join(ROOT,'play-guide.html'),'w',encoding='utf-8').write(html)

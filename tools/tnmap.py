@@ -1,3 +1,4 @@
+# One-off: builds tnpath.json and tnrings.json from a Tamil Nadu GeoJSON (states.json). Outputs are committed; no need to re-run.
 import json, math
 d=json.load(open('/tmp/states.json'))
 tn=[f for f in d['features'] if f['properties'].get('NAME_1')=='Tamil Nadu'][0]['geometry']['coordinates']
